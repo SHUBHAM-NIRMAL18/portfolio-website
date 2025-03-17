@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="asset/favicon.ico">
+  <title>Shubham - Personal Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="profile-photo-container">
+      <img src="asset/cv.png" alt="Profile Photo">
+    </div>
+    <h1 class="name">Shubham Nirmal</h1>
+    <p class="title">Django Developer</p>
+    <div class="contact-info">
+      <p>📧 suvamniraml456@gmail.com</p>
+      <p>📱 +977-9821287731</p>
+      <p>📍 Lalitpur, Nepal</p>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/SHUBHAM-NIRMAL18" class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/shubham-nirmal-3167671b9/" class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+      </a>
+      <a href="https://x.com/shubhamnirmal" class="social-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="main-content">
+    <nav class="nav-bar">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#resume" class="nav-link">Resume</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Dynamic Content Container -->
+    <div id="content-container"></div>
+
+    <!-- Hidden Templates -->
+    <div style="display: none;">
+      <!-- About Section Template -->
+      <div id="about-content" class="content-section">
+        <h2 class="section-heading">About Me</h2>
+        <p class="about-description">
+          A passionate Django developer with strong expertise in web applications, REST APIs, backend systems, and database design. Proven track record in delivering cutting-edge solutions, including API integration, third-party libraries, and performance optimization. Adept at debugging to ensure high-quality, scalable applications and an agile collaborator committed to staying current with industry trends.
+          <br /><br />
+          If you're seeking a skilled Django developer to breathe life into your project and exceed your expectations, I am here to collaborate and create robust solutions together. Reach out, and let's transform your vision into a reality!
+        </p>
+        
+        <h3 class="subsection-heading">What I'm Doing</h3>
+        <div class="roles-container">
+          <div class="role-box">
+            <img src="asset/development.png" alt="Design" class="role-image">
+            <h4>Web Development</h4>
+            <p>Building responsive full-stack applications with Django</p>
+          </div>
+          <div class="role-box">
+            <img src="asset/backend.png" alt="Design" class="role-image">
+            <h4>Backend Development</h4>
+            <p>Designing scalable APIs and database architectures</p>
+          </div>
+          <div class="role-box">
+            <img src="asset/designer.png" alt="Design" class="role-image">
+            <h4>UI/UX Design</h4>
+            <p>Creating intuitive user interfaces with modern workflows</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-heading">My Skills</h3>
+        <div class="skills-container">
+          <div class="skill-item">
+            <img src="asset/python.png" alt="Python" class="skill-img" />
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <img src="asset/django.jpeg" alt="Django" class="skill-img" />
+            <span>Django</span>
+          </div>
+          <div class="skill-item">
+            <img src="asset/figma.png" alt="Figma" class="skill-img" />
+            <span>Figma</span>
+          </div>
+          <div class="skill-item">
+            <img src="asset/php.png" alt="PHP" class="skill-img" />
+            <span>PHP</span>
+          </div>
+          <div class="skill-item">
+            <img src="asset/docker.png" alt="Docker" class="skill-img" />
+            <span>Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add this inside the hidden templates section -->
+<div id="resume-content" class="content-section">
+  <h2 class="section-heading">Resume</h2>
+  
+  <div class="resume-container">
+    <!-- Education Section -->
+    <div class="resume-card">
+      <div class="timeline-header">
+        <i class="fas fa-graduation-cap timeline-icon"></i>
+        <h3 class="subsection-heading">Education</h3>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-item">
+        <h4>Bachelor of Computer Application (BCA)</h4>
+        <div class="timeline-meta">
+          <span class="timeline-company">Patan Multiple Campus, Patandhoka, Lalitpur</span>
+          <span class="timeline-date">2021 - 2025</span>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="resume-card">
+      <div class="timeline-header">
+        <i class="fas fa-briefcase timeline-icon"></i>
+        <h3 class="subsection-heading">Experience</h3>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-item">
+        <h4>Django Developer Intern</h4>
+        <div class="timeline-meta">
+          <span class="timeline-company">Raijin Tech Pvt Ltd</span>
+          <span class="timeline-date">19 Nov 2024 - 19 Feb 2025 (3 Months)</span>
+        </div>
+        <div class="timeline-dot"></div>
+        <ul class="timeline-description">
+          <li><i class="fas fa-caret-right accent"></i> Developed and maintained Django web applications</li>
+          <li><i class="fas fa-caret-right accent"></i> Implemented REST APIs for mobile integration</li>
+          <li><i class="fas fa-caret-right accent"></i> Optimized database queries for improved performance</li>
+          <li><i class="fas fa-caret-right accent"></i> Collaborated on CI/CD pipeline implementation</li>
+          <li><i class="fas fa-caret-right accent"></i> Participated in code reviews and agile sprints</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Download Button -->
+    <div class="download-container">
+      <a href="asset/CV/SHUBHAM_CV.pdf" download class="download-btn">
+        Download CV
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+      <!-- Projects Section Template -->
+      <!-- Projects Section Template -->
+<div id="projects-content" class="content-section">
+  <h2 class="section-heading">My Projects</h2>
+  
+  <div class="projects-container">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-image-container">
+        <img src="asset/Project/Medlife.png" alt="E-Commerce Platform" class="project-image">
+        <div class="project-categories">
+          <span class="category-badge web-app">Web Application</span>
+          <span class="category-badge backend">Backend</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Medlife Online Pharmacy Platform</h3>
+        <p class="project-description">
+          MEDLIFE is an innovative online pharmacy system designed to provide a seamless and convenient shopping experience for customers seeking pharmacy products. 
+          Features include product management, user authentication, payment gateway
+          integration, and admin dashboard.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/SHUBHAM-NIRMAL18/-MEDLIFE-Online_Pharmacy_System" 
+             class="github-link"
+             target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-image-container">
+        <img src="asset/Project/crop.png" alt="Task Manager" class="project-image">
+        <div class="project-categories">
+          <span class="category-badge web-app">Web Application</span>
+          <span class="category-badge backend">Backend</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Crop Prediction System</h3>
+        <p class="project-description">
+          A Crop Prediction System is a project that leverages machine learning and data analytics to help farmers 
+          determine the most suitable crops to grow based on various factors like soil type, weather conditions, rainfall, temperature, and other environmental parameters.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/yourusername/task-manager" 
+             class="github-link"
+             target="_blank">
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View Code
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image-container">
+        <img src="asset/Project/Movfix.png" alt="Task Manager" class="project-image">
+        <div class="project-categories">
+          <span class="category-badge web-app">Web Application</span>
+          <span class="category-badge frontend">Frontend</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">MovFix</h3>
+        <p class="project-description">
+          Movfix is an online platform offering a wide array of movies and TV shows for streaming. Users can explore various genres, access detailed information about each title, 
+          and enjoy features like offline downloads and multi-device compatibility.
+        </p>
+        <div class="project-links">
+          <a href="https://movfix-bay.vercel.app/" 
+             class="github-link"
+             target="_blank">
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-image-container">
+        <img src="asset/Project/ui-ux.png" alt="Portfolio Design" class="project-image">
+        <div class="project-categories">
+          <span class="category-badge uiux">UI/UX</span>
+          <span class="category-badge frontend">Frontend</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Store Website Design</h3>
+        <p class="project-description">
+          Modern store design system with Figma. Includes responsive layouts,
+          component library, and interactive prototypes.
+        </p>
+        <div class="project-links">
+          <a href="https://www.figma.com/proto/9JhYFiYe5KUe00UmugnKzt/UXA-C1-Glen-Pro-Beauty?node-id=1678-10738&page-id=1678%3A9991&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=1678%3A9994&t=T4IltOvKCN8D3nAT-1&type=design&viewport=101%2C102%2C0.05" 
+             class="github-link"
+             target="_blank">
+             
+            View Design
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section Template -->
+<div id="contact-content" class="content-section">
+  <h2 class="section-heading">Get in Touch</h2>
+  
+  <div class="contact-container">
+    <form class="contact-form">
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          placeholder=" "
+        />
+        <label for="name">Full Name</label>
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          placeholder=" "
+        />
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="subject" 
+          name="subject" 
+          required 
+          placeholder=" "
+        />
+        <label for="subject">Subject</label>
+      </div>
+
+      <div class="form-group">
+        <textarea 
+          id="message" 
+          name="message" 
+          rows="5" 
+          required 
+          placeholder=" "
+        ></textarea>
+        <label for="message">Your Message</label>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Send Message
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+  <script>
+    // Handle initial load and navigation
+    function initializeSPA() {
+      // Load initial content
+      const initialSection = window.location.hash.substring(1) || 'about';
+      loadContent(initialSection);
+
+      // Setup navigation click handlers
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const section = this.getAttribute('href').substring(1);
+          history.pushState({}, '', `#${section}`);
+          loadContent(section);
+        });
+      });
+
+      // Handle back/forward navigation
+      window.addEventListener('popstate', () => {
+        const section = window.location.hash.substring(1);
+        loadContent(section);
+      });
+    }
+
+    // Content loading function
+    function loadContent(section) {
+      const contentContainer = document.getElementById('content-container');
+      const template = document.getElementById(`${section}-content`);
+
+      // Clear current content
+      contentContainer.innerHTML = '';
+
+      // Load new content if template exists
+      if (template) {
+        const content = template.cloneNode(true);
+        contentContainer.appendChild(content);
+      }
+
+      // Update active navigation
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${section}`);
+      });
+
+      // Smooth scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initializeSPA);
+  </script>
+</body>
+</html>
