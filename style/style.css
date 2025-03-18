@@ -1,3 +1,154 @@
+/* ===== Mobile Responsive Upgrades ===== */
+@media (max-width: 768px) {
+  /* Improved Navbar Responsiveness */
+  .nav-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 15px;
+    margin-bottom: 30px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 10px;
+    margin: 2px;
+  }
+
+  /* Resume Section Mobile Optimization */
+  .resume-container {
+    padding: 0 15px;
+  }
+
+  .resume-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item {
+    margin-left: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .timeline-line {
+    left: 0.75rem;
+    top: 2rem;
+  }
+
+  .timeline-dot {
+    left: -1.25rem;
+    top: 0.3rem;
+    width: 10px;
+    height: 10px;
+  }
+
+  .timeline-meta {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
+  }
+
+  .timeline-description li {
+    font-size: 0.9rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile Navbar Fine-tuning */
+  .nav-bar {
+    gap: 6px;
+    padding: 10px 5px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  /* Resume Section Mobile Fine-tuning */
+  .resume-card {
+    padding: 1rem;
+  }
+
+  .timeline-item {
+    margin-left: 1rem;
+  }
+
+  .timeline-line {
+    left: 0.5rem;
+  }
+
+  .timeline-dot {
+    left: -0.9rem;
+  }
+
+  .timeline-description li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .timeline-company {
+    font-size: 0.9rem;
+  }
+
+  /* Download Button Adjustment */
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Add smooth transitions for mobile menu */
+.nav-bar {
+  transition: all 0.3s ease;
+}
+
+/* Better touch targets for mobile */
+@media (hover: none) {
+  .nav-link {
+    padding: 10px 12px;
+    margin: 3px;
+  }
+  
+  .project-card,
+  .resume-card {
+    transform: none !important;
+  }
+}
+
+/* Prevent text overflow in timeline items */
+.timeline-description li {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Ensure proper spacing in mobile view */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 10px 30px;
+  }
+  
+  .content-section {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .section-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+
 /* === Global Styles === */
 * {
     margin: 0;
@@ -300,14 +451,14 @@ body {
         gap: 10px;
         padding: 10px;
     }
-        /* Active Navigation Link */
+    /* Active Navigation Link */
     .nav-link.active {
         color: #64ffda !important;
         background: rgba(100, 255, 218, 0.1);
         transform: translateY(-2px);
     }
     
-        /* Add smooth transitions */
+    /* Add smooth transitions */
     #content-container {
         animation: fadeIn 0.3s ease-in;
     }
@@ -317,12 +468,6 @@ body {
         to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Active navigation state */
-    .nav-link.active {
-        color: #64ffda !important;
-        background: rgba(100, 255, 218, 0.1);
-        transform: translateY(-2px);
-    }
     .nav-link {
         padding: 6px 10px;
         font-size: 14px;
@@ -354,9 +499,9 @@ body {
 .resume-container {
     max-width: 800px;
     margin: 0 auto;
-  }
+}
   
-  .resume-card {
+.resume-card {
     background: #112240;
     border-radius: 10px;
     padding: 2rem;
@@ -364,41 +509,41 @@ body {
     position: relative;
     transition: transform 0.3s ease;
     border: 1px solid rgba(100, 255, 218, 0.1);
-  }
+}
   
-  .resume-card:hover {
+.resume-card:hover {
     transform: translateY(-5px);
-  }
+}
   
-  .timeline-header {
+.timeline-header {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
     position: relative;
-  }
+}
   
-  .timeline-icon {
+.timeline-icon {
     font-size: 1.5rem;
     color: #64ffda;
     margin-right: 1rem;
-  }
+}
   
-  .timeline-line {
+.timeline-line {
     position: absolute;
     left: 0.65rem;
     top: 2.5rem;
     bottom: 0;
     width: 2px;
     background: rgba(100, 255, 218, 0.2);
-  }
+}
   
-  .timeline-item {
+.timeline-item {
     margin-left: 2.5rem;
     position: relative;
     padding-bottom: 2rem;
-  }
+}
   
-  .timeline-dot {
+.timeline-dot {
     position: absolute;
     left: -1.85rem;
     top: 0.4rem;
@@ -407,52 +552,52 @@ body {
     background: #64ffda;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
-  }
+}
   
-  .timeline-meta {
+.timeline-meta {
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0;
     color: #8892b0;
     font-size: 0.9rem;
-  }
+}
   
-  .timeline-company {
+.timeline-company {
     font-weight: 500;
     color: #64ffda;
-  }
+}
   
-  .timeline-date {
+.timeline-date {
     font-style: italic;
-  }
+}
   
-  .timeline-description {
+.timeline-description {
     list-style: none;
     padding-left: 1rem;
     margin-top: 1rem;
-  }
+}
   
-  .timeline-description li {
+.timeline-description li {
     margin-bottom: 0.8rem;
     position: relative;
     padding-left: 1.5rem;
     line-height: 1.6;
-  }
+}
   
-  .timeline-description .fa-caret-right {
+.timeline-description .fa-caret-right {
     position: absolute;
     left: 0;
     top: 0.3rem;
     color: #64ffda;
-  }
+}
   
-  /* Download Button */
-  .download-container {
+/* Download Button */
+.download-container {
     text-align: center;
     margin-top: 3rem;
-  }
+}
   
-  .download-btn {
+.download-btn {
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
@@ -465,33 +610,33 @@ body {
     border: 2px solid #64ffda;
     position: relative;
     overflow: hidden;
-  }
+}
   
-  .download-btn svg {
+.download-btn svg {
     margin-left: 0.8rem;
     transition: transform 0.3s ease;
-  }
+}
   
-  .download-btn:hover {
+.download-btn:hover {
     background: linear-gradient(45deg, #0a192f, #64ffda);
     color: #64ffda;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-  }
+}
   
-  .download-btn:hover svg {
+.download-btn:hover svg {
     transform: translateY(3px);
-  }
-  /* Projects Section */
+}
+
 /* Projects Section */
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 1rem;
-  }
+}
   
-  .project-card {
+.project-card {
     background: #112240;
     border-radius: 10px;
     overflow: hidden;
@@ -499,15 +644,15 @@ body {
     border: 1px solid rgba(100, 255, 218, 0.1);
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .project-image-container {
+.project-image-container {
     position: relative;
     overflow: hidden;
     height: 200px;
     padding: 1rem; /* Added padding */
-  }
-  .project-image-container::after {
+}
+.project-image-container::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -515,17 +660,17 @@ body {
     right: 0;
     height: 40%;
     background: linear-gradient(to top, rgba(17, 34, 64, 0.9) 20%, transparent 100%);
-  }
+}
   
-  .project-image {
+.project-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
     border-radius: 8px;
-  }
+}
   
-  .project-categories {
+.project-categories {
     position: absolute;
     bottom: 1rem; /* Changed from top to bottom */
     left: 1rem;
@@ -533,18 +678,18 @@ body {
     gap: 0.5rem;
     flex-wrap: wrap; /* Allow wrapping */
     max-width: 90%;
-  }
-
-  .project-card:hover {
+}
+  
+.project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-  }
+}
   
-  .project-card:hover .category-badge {
+.project-card:hover .category-badge {
     background-color: rgba(16, 24, 39, 0.9);
-  }
+}
   
-  .category-badge {
+.category-badge {
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.75rem; /* Reduced font size */
@@ -552,44 +697,43 @@ body {
     text-transform: uppercase;
     backdrop-filter: blur(5px); /* Add blur effect */
     background-color: rgba(16, 24, 39, 0.7); /* Semi-transparent background */
-  }
+}
   
-  /* Category color variations */
-  .category-badge.web-app { border: 1px solid #64ffda; }
-  .category-badge.backend { border: 1px solid #ff6464; }
-  .category-badge.uiux { border: 1px solid #ffb864; }
-  .category-badge.frontend { border: 1px solid #64b8ff; }
+/* Category color variations */
+.category-badge.web-app { border: 1px solid #64ffda; }
+.category-badge.backend { border: 1px solid #ff6464; }
+.category-badge.uiux { border: 1px solid #ffb864; }
+.category-badge.frontend { border: 1px solid #64b8ff; }
   
-  .project-content {
+.project-content {
     padding: 1.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-  }
+}
   
-  .project-title {
+.project-title {
     color: #64ffda;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
-  }
+}
   
-  .project-description {
+.project-description {
     color: #8892b0;
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1rem;
     flex-grow: 1;
-  }
+}
   
-  .project-links {
+.project-links {
     margin-top: auto;
     display: flex;
     justify-content: flex-end;
-  }
+}
   
-  /* Rest of your existing CSS... */
-  
-  .github-link {
+/* GitHub Link Styling */
+.github-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -599,20 +743,20 @@ body {
     border: 1px solid rgba(100, 255, 218, 0.2);
     border-radius: 5px;
     transition: all 0.3s ease;
-  }
+}
   
-  .github-link:hover {
+.github-link:hover {
     background: rgba(100, 255, 218, 0.1);
     transform: translateY(-2px);
-  }
+}
   
-  .github-link svg {
+.github-link svg {
     width: 18px;
     height: 18px;
-  }
+}
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
+/* Responsive Design for Projects */
+@media (max-width: 768px) {
     .projects-container {
       grid-template-columns: 1fr;
     }
@@ -620,26 +764,26 @@ body {
     .project-image-container {
       height: 250px;
     }
-  }
+}
 
-  /* Contact Form Styling */
+/* Contact Form Styling */
 .contact-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-  }
+}
   
-  .contact-form {
+.contact-form {
     display: grid;
     gap: 1.8rem;
-  }
+}
   
-  .form-group {
+.form-group {
     position: relative;
     margin-bottom: 1rem;
-  }
+}
   
-  .form-group label {
+.form-group label {
     position: absolute;
     left: 1rem;
     top: 0.9rem;
@@ -649,10 +793,10 @@ body {
     transition: all 0.3s ease;
     background: #0a192f;
     padding: 0 0.3rem;
-  }
+}
   
-  .form-group input,
-  .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 1rem;
     background: #112240;
@@ -661,31 +805,31 @@ body {
     color: #ccd6f6;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
-  }
+}
   
-  .form-group textarea {
+.form-group textarea {
     resize: vertical;
     min-height: 120px;
-  }
+}
   
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group input:not(:placeholder-shown),
-  .form-group textarea:not(:placeholder-shown) {
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group input:not(:placeholder-shown),
+.form-group textarea:not(:placeholder-shown) {
     border-color: #64ffda;
     outline: none;
-  }
+}
   
-  .form-group input:focus ~ label,
-  .form-group textarea:focus ~ label,
-  .form-group input:not(:placeholder-shown) ~ label,
-  .form-group textarea:not(:placeholder-shown) ~ label {
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
     top: -0.6rem;
     font-size: 0.8rem;
     color: #64ffda;
-  }
+}
   
-  .submit-btn {
+.submit-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
@@ -697,20 +841,20 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
+}
   
-  .submit-btn:hover {
+.submit-btn:hover {
     background: linear-gradient(45deg, #0a192f, #64ffda);
     color: #64ffda;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
-  }
+}
   
-  .submit-btn svg {
+.submit-btn svg {
     width: 18px;
     height: 18px;
     stroke: currentColor;
-  }
+}
   
-  /* Add Font Awesome for icons */
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+/* Add Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
