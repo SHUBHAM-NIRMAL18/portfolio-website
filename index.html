@@ -4,620 +4,861 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="asset/favicon.ico">
-  <title>Shubham - Personal Portfolio</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+  <title>Shubham Nirmal - Personal Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="style/style.css" />
 </head>
-<body>
-  <!-- Mobile Menu Toggle -->
-  <button class="mobile-menu-toggle" id="mobileMenuToggle">
-    <i class="fas fa-bars"></i>
-  </button>
+<body class="loading-active">
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <button class="sidebar-close" id="sidebarClose">
-      <i class="fas fa-times"></i>
-    </button>
-    
-    <div class="profile-photo-container">
-      <img src="asset/cv.png" alt="Profile Photo">
-    </div>
-    <h1 class="name">Shubham Nirmal</h1>
-    <p class="title">Python Developer</p>
-    <div class="contact-info">
-      <p><i class="fas fa-envelope"></i> suvamniraml456@gmail.com</p>
-      <p><i class="fas fa-phone"></i> +977-9821287731</p>
-      <p><i class="fas fa-map-marker-alt"></i> Lalitpur, Nepal</p>
-    </div>
-    <div class="social-links">
-      <a href="https://github.com/SHUBHAM-NIRMAL18" class="social-icon" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/shubham-nirmal-3167671b9/" class="social-icon" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-      </a>
-      <a href="https://x.com/shubhamnirmal" class="social-icon" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-        </svg>
-      </a>
+  <!-- ===== Glowing Background Ambient Blobs ===== -->
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+
+  <!-- ===== Preloader / Loading Screen ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo" id="preloader-logo">SN</div>
+      <div class="preloader-loader"></div>
     </div>
   </div>
 
-  <!-- Mobile Overlay -->
-  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <!-- ===== Fixed Navigation Header ===== -->
+  <header class="nav-bar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">Shubham<span>.</span></a>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
 
-  <!-- Main Content Container -->
-  <div class="main-content">
-    <nav class="nav-bar">
-      <a href="#about" class="nav-link active">About</a>
-      <a href="#resume" class="nav-link">Resume</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-
-    <!-- Dynamic Content Container -->
-    <div id="content-container"></div>
-
-    <!-- Hidden Templates -->
-    <div style="display: none;">
-      <!-- About Section Template -->
-      <div id="about-content" class="content-section">
-        <h2 class="section-heading">About Me</h2>
-        <p class="about-description">
-          Python Developer with 1+ year of proven Django development experience, including internships and fellowship programs. 
-          Skilled in designing RESTful APIs, database optimization, and backend development to deliver scalable web solutions. 
-          Passionate about exploring new technologies like Generative AI and contributing to cutting-edge solutions.
-          <br /><br />
-          If you're seeking a skilled Python/Django developer to breathe life into your project and exceed your expectations, 
-          I am here to collaborate and create robust solutions together. Reach out, and let's transform your vision into a reality!
-        </p>
-        
-        <h3 class="subsection-heading">What I'm Doing</h3>
-        <div class="roles-container">
-          <div class="role-box">
-            <img src="asset/development.png" alt="Web Development" class="role-image">
-            <h4>Web Development</h4>
-            <p>Building responsive full-stack applications with Django and Next.js</p>
-          </div>
-          <div class="role-box">
-            <img src="asset/backend.png" alt="Backend Development" class="role-image">
-            <h4>Backend Development</h4>
-            <p>Designing scalable APIs and database architectures with Django REST Framework</p>
-          </div>
-          <div class="role-box">
-            <img src="asset/designer.png" alt="UI/UX Design" class="role-image">
-            <h4>UI/UX Design</h4>
-            <p>Creating intuitive user interfaces with modern workflows using Figma</p>
-          </div>
-        </div>
-
-        <h3 class="subsection-heading">My Skills</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-            <img src="asset/python.png" alt="Python" class="skill-img" />
-            <span>Python</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/django.jpeg" alt="Django" class="skill-img" />
-            <span>Django</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/drf.png" alt="Django REST Framework" class="skill-img" />
-            <span>Django REST</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/react.jpg" alt="React" class="skill-img" />
-            <span>React</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/nextjs.png" alt="Next.js" class="skill-img" />
-            <span>Next.js</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/javascript.png" alt="JavaScript" class="skill-img" />
-            <span>JavaScript</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/typescript.png" alt="TypeScript" class="skill-img" />
-            <span>TypeScript</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/postgresql.png" alt="PostgreSQL" class="skill-img" />
-            <span>PostgreSQL</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/mysql.jpg" alt="MySQL" class="skill-img" />
-            <span>MySQL</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/git.png" alt="Git" class="skill-img" />
-            <span>Git/GitHub</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/docker.png" alt="Docker" class="skill-img" />
-            <span>Docker</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/php.png" alt="AWS" class="skill-img" />
-            <span>PHP</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/figma.png" alt="Figma" class="skill-img" />
-            <span>Figma</span>
-          </div>
-          <div class="skill-item">
-            <img src="asset/postman.png" alt="GitHub Actions" class="skill-img" />
-            <span>Post Man</span>
-          </div>
+      <!-- Vibe & Color Picker Dropdown -->
+      <div class="vibe-picker-container">
+        <button class="vibe-picker-btn" id="vibeBtn" title="Choose Vibe">
+          <i class="fas fa-palette"></i> <span id="active-vibe-name">Emerald</span> <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+        </button>
+        <div class="vibe-dropdown" id="vibeDropdown">
+          <button class="vibe-option active" data-vibe-val="emerald">
+            <span class="vibe-dot emerald"></span> Emerald Aurora
+          </button>
+          <button class="vibe-option" data-vibe-val="cyberpunk">
+            <span class="vibe-dot cyberpunk"></span> Retro Cyberpunk
+          </button>
+          <button class="vibe-option" data-vibe-val="sunset">
+            <span class="vibe-dot sunset"></span> Sunset Bronze
+          </button>
+          <button class="vibe-option" data-vibe-val="noir">
+            <span class="vibe-dot noir"></span> Stark Noir
+          </button>
         </div>
       </div>
 
-      <!-- Resume Section Template -->
-      <div id="resume-content" class="content-section">
-        <h2 class="section-heading">Resume</h2>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Main Portfolio Sections ===== -->
+  <main class="container main-content">
+
+    <!-- Hero Section (Typography Focused) -->
+    <section id="hero" class="content-section">
+      <div class="hero-layout">
+        <div class="hero-text">
+          <span class="hero-subtitle">Hi, my name is</span>
+          <h1 class="hero-title">Shubham <span>Nirmal</span></h1>
+          <div class="hero-role-wrapper">
+            I'm a&nbsp;<span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+          </div>
+          <p class="hero-description">
+            Python Developer with 1+ year of proven Django development experience, specializing in scalable backend APIs, database optimization, and modern frontend integrations. I design robust web applications that align technical functionality with premium user experiences.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <div class="section-header">
+        <span class="section-tag">01 / Profile</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>
+            Python Developer with 1+ year of proven Django development experience, including software fellowships and engineering internships. 
+            Skilled in designing RESTful APIs, database tuning, and backend architectures to deliver high-performance web solutions. 
+            Passionate about exploring modern architectures, React/Next.js UI interfaces, and integrating generative AI tools to build state-of-the-art products.
+          </p>
+          <br>
+          <p>
+            If you're seeking a focused backend engineer or full-stack developer to breathe life into your web platform, 
+            I am here to collaborate and build robust, high-quality systems together. Let's transform your vision into reality!
+          </p>
+        </div>
+
+        <div>
+          <h3 class="about-services-title">What I Do</h3>
+          <div class="services-grid">
+            <div class="glass-card service-card">
+              <div class="service-icon-box">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h4>Web Development</h4>
+              <p>Building responsive, interactive frontend interfaces and web apps using Next.js, React, and TypeScript.</p>
+            </div>
+            <div class="glass-card service-card">
+              <div class="service-icon-box">
+                <i class="fas fa-server"></i>
+              </div>
+              <h4>Backend Engineering</h4>
+              <p>Designing scale-ready microservices, secure RESTful APIs, database structures, and JWT authentication workflows with Django Rest Framework.</p>
+            </div>
+            <div class="glass-card service-card">
+              <div class="service-icon-box">
+                <i class="fas fa-drafting-compass"></i>
+              </div>
+              <h4>UI/UX & Architecture</h4>
+              <p>Creating user-centric interactive designs and component libraries using Figma to ensure clean user journeys.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Continuous Skills Scrolling Marquee -->
+        <div>
+          <h3 class="skills-sec-title">My Toolkit</h3>
+          
+          <div class="marquee-container">
+            <div class="marquee-content">
+              <!-- Item List -->
+              <div class="marquee-card"><img src="asset/python.png" alt="Python"><span>Python</span></div>
+              <div class="marquee-card"><img src="asset/django.jpeg" alt="Django"><span>Django</span></div>
+              <div class="marquee-card"><img src="asset/drf.png" alt="DRF"><span>Django REST</span></div>
+              <div class="marquee-card"><img src="asset/react.jpg" alt="React"><span>React</span></div>
+              <div class="marquee-card"><img src="asset/nextjs.png" alt="Next.js"><span>Next.js</span></div>
+              <div class="marquee-card"><img src="asset/javascript.png" alt="JavaScript"><span>JavaScript</span></div>
+              <div class="marquee-card"><img src="asset/typescript.png" alt="TypeScript"><span>TypeScript</span></div>
+              <div class="marquee-card"><img src="asset/postgresql.png" alt="PostgreSQL"><span>PostgreSQL</span></div>
+              <div class="marquee-card"><img src="asset/mysql.jpg" alt="MySQL"><span>MySQL</span></div>
+              <div class="marquee-card"><img src="asset/git.png" alt="Git"><span>Git/GitHub</span></div>
+              <div class="marquee-card"><img src="asset/docker.png" alt="Docker"><span>Docker</span></div>
+              <div class="marquee-card"><img src="asset/php.png" alt="PHP"><span>PHP</span></div>
+              <div class="marquee-card"><img src="asset/figma.png" alt="Figma"><span>Figma</span></div>
+              <div class="marquee-card"><img src="asset/postman.png" alt="Postman"><span>Postman</span></div>
+              
+              <!-- Repeated Items for Infinite Loop Seamless Transition -->
+              <div class="marquee-card"><img src="asset/python.png" alt="Python"><span>Python</span></div>
+              <div class="marquee-card"><img src="asset/django.jpeg" alt="Django"><span>Django</span></div>
+              <div class="marquee-card"><img src="asset/drf.png" alt="DRF"><span>Django REST</span></div>
+              <div class="marquee-card"><img src="asset/react.jpg" alt="React"><span>React</span></div>
+              <div class="marquee-card"><img src="asset/nextjs.png" alt="Next.js"><span>Next.js</span></div>
+              <div class="marquee-card"><img src="asset/javascript.png" alt="JavaScript"><span>JavaScript</span></div>
+              <div class="marquee-card"><img src="asset/typescript.png" alt="TypeScript"><span>TypeScript</span></div>
+              <div class="marquee-card"><img src="asset/postgresql.png" alt="PostgreSQL"><span>PostgreSQL</span></div>
+              <div class="marquee-card"><img src="asset/mysql.jpg" alt="MySQL"><span>MySQL</span></div>
+              <div class="marquee-card"><img src="asset/git.png" alt="Git"><span>Git/GitHub</span></div>
+              <div class="marquee-card"><img src="asset/docker.png" alt="Docker"><span>Docker</span></div>
+              <div class="marquee-card"><img src="asset/php.png" alt="PHP"><span>PHP</span></div>
+              <div class="marquee-card"><img src="asset/figma.png" alt="Figma"><span>Figma</span></div>
+              <div class="marquee-card"><img src="asset/postman.png" alt="Postman"><span>Postman</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlighted Skill Boxes (Different stylized boxes as requested) -->
+        <div>
+          <h3 class="skills-sec-title">Highlighted Competencies</h3>
+          <div class="skills-grid">
+            <div class="skill-card-box">
+              <div class="skill-card-header">
+                <img src="asset/django.jpeg" alt="Python/Django">
+                <h4>Python & Django Backend</h4>
+              </div>
+              <p class="skill-card-desc">Designing robust architectures, database models, optimization, and complex Django ORM systems.</p>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-percent="90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-card-box">
+              <div class="skill-card-header">
+                <img src="asset/drf.png" alt="DRF API">
+                <h4>API Development & Security</h4>
+              </div>
+              <p class="skill-card-desc">Building modular RESTful APIs with Django REST Framework, JWT role-based security, and thorough endpoints documentation.</p>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-percent="88%"></div>
+              </div>
+            </div>
+
+            <div class="skill-card-box">
+              <div class="skill-card-header">
+                <img src="asset/nextjs.png" alt="Next.js">
+                <h4>Full Stack & UI Workflows</h4>
+              </div>
+              <p class="skill-card-desc">Connecting APIs with Next.js/React frontend frameworks, Axios interceptors, React Query caching, and Tailwind styling.</p>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-percent="75%"></div>
+              </div>
+            </div>
+
+            <div class="skill-card-box">
+              <div class="skill-card-header">
+                <img src="asset/postgresql.png" alt="PostgreSQL">
+                <h4>Relational Databases</h4>
+              </div>
+              <p class="skill-card-desc">Writing optimized relational query logic, indexes, tuning database calls, and migrations in PostgreSQL and MySQL.</p>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-percent="82%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="content-section">
+      <div class="section-header">
+        <span class="section-tag">02 / Journey</span>
+        <h2 class="section-title">Resume & Experience</h2>
+      </div>
+      <div class="resume-grid">
         
-        <div class="resume-container">
-          <!-- Education Section -->
-          <div class="resume-card">
-            <div class="timeline-header">
-              <i class="fas fa-graduation-cap timeline-icon"></i>
-              <h3 class="subsection-heading">Education</h3>
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-item">
-              <h4>Bachelor of Computer Application (BCA)</h4>
+        <!-- Experience Timeline -->
+        <div class="timeline">
+          
+          <h3 class="subsection-heading" style="margin-left: 0; margin-bottom: 24px;">Professional Experience</h3>
+          
+          <!-- Cloco -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
               <div class="timeline-meta">
-                <span class="timeline-company">Patan Multiple Campus, Tribhuvan University</span>
-                <span class="timeline-date">2021 - Present</span>
+                <div>
+                  <h4 class="timeline-role">Software Development Fellow</h4>
+                  <span class="timeline-company">Cloco Nepal Inc PVT. LTD</span>
+                </div>
+                <span class="timeline-duration">Jun 2025 - Aug 2025</span>
               </div>
-              <div class="timeline-dot"></div>
-            </div>
-          </div>
-
-          <!-- Experience Section -->
-          <div class="resume-card">
-            <div class="timeline-header">
-              <i class="fas fa-briefcase timeline-icon"></i>
-              <h3 class="subsection-heading">Experience</h3>
-              <div class="timeline-line"></div>
-            </div>
-            
-            <!-- Current Fellowship -->
-            <div class="timeline-item">
-              <h4>Software Development Fellowship</h4>
-              <div class="timeline-meta">
-                <span class="timeline-company">Cloco Nepal Inc PVT. LTD</span>
-                <span class="timeline-date">June 2025 - August 2025</span>
-              </div>
-              <div class="timeline-dot"></div>
-              <ul class="timeline-description">
-                <li><i class="fas fa-caret-right accent"></i> Built and refined several DRF APIs including Bill Splitting APIs, e-commerce platform, and expense tracker</li>
-                <li><i class="fas fa-caret-right accent"></i> Implemented JWT authentication, role-based access, and CRUD endpoints</li>
-                <li><i class="fas fa-caret-right accent"></i> Created TypeScript-based Next.js client with React Query, Axios interceptors, and TailwindCSS</li>
-                <li><i class="fas fa-caret-right accent"></i> Integrated shadcn/ui components and reusable components with protected dashboards</li>
-                <li><i class="fas fa-caret-right accent"></i> Implemented token refresh flows, role-based redirects, and multi-step forms with clean project structure</li>
-              </ul>
-            </div>
-
-            <!-- Previous Internship -->
-            <div class="timeline-item">
-              <h4>Django Developer Intern</h4>
-              <div class="timeline-meta">
-                <span class="timeline-company">Raijin Tech Pvt Ltd</span>
-                <span class="timeline-date">Nov 2024 - Feb 2025</span>
-              </div>
-              <div class="timeline-dot"></div>
-              <ul class="timeline-description">
-                <li><i class="fas fa-caret-right accent"></i> Developed and maintained Django-based web applications, contributing to 20% improvement in backend performance</li>
-                <li><i class="fas fa-caret-right accent"></i> Collaborated with frontend teams to design and integrate RESTful APIs using Django REST Framework</li>
-                <li><i class="fas fa-caret-right accent"></i> Utilized Git version control for collaborative development</li>
-                <li><i class="fas fa-caret-right accent"></i> Contributed to CI/CD pipelines for automated deployment</li>
-                <li><i class="fas fa-caret-right accent"></i> Optimized database queries for improved performance</li>
+              <ul class="timeline-desc">
+                <li>Designed and built secure Django REST Framework APIs for bill splitting, expense tracking, and retail platforms.</li>
+                <li>Implemented JWT authentication, role-based authorization, and custom CRUD resources.</li>
+                <li>Created custom, reactive frontend dashboards using Next.js, TypeScript, React Query, and Shadcn/ui.</li>
+                <li>Engineered robust Axios interceptor handlers to manage automatic token refresh operations.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Certifications Section -->
-          <div class="resume-card">
-            <div class="timeline-header">
-              <i class="fas fa-certificate timeline-icon"></i>
-              <h3 class="subsection-heading">Certifications</h3>
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-item">
-              <div class="certifications-grid">
-                <a href="https://www.udemy.com/certificate/UC-64537fe8-37c3-4832-adce-49924003416f/" class="cert-item" target="_blank">
-                  <i class="fab fa-python cert-icon"></i>
-                  <span>The Complete Django Rest Framework (Udemy)</span>
-                  <i class="fas fa-external-link-alt cert-link"></i>
-                </a>
-                <a href="https://www.udemy.com/certificate/UC-4b52db27-148a-4476-a543-ad921a423075/" class="cert-item" target="_blank">
-                  <i class="fab fa-git-alt cert-icon"></i>
-                  <span>Git and GitHub (Udemy)</span>
-                  <i class="fas fa-external-link-alt cert-link"></i>
-                </a>
-                <a href="https://www.hackerrank.com/certificates/4721f3e52a79" class="cert-item" target="_blank">
-                  <i class="fab fa-python cert-icon"></i>
-                  <span>Python Course (HackerRank)</span>
-                  <i class="fas fa-external-link-alt cert-link"></i>
-                </a>
-                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_oLmvBe9Yn4PJbgmof_1742225766570_completion_certificate.pdf" class="cert-item" target="_blank">
-                  <i class="fab fa-aws cert-icon"></i>
-                  <span>AWS Solution Architecture Job Simulation (Forage)</span>
-                  <i class="fas fa-external-link-alt cert-link"></i>
-                </a>
-                <a href="https://imgur.com/a/Arzw3AE" class="cert-item" target="_blank">
-                  <i class="fas fa-code cert-icon"></i>
-                  <span>Clash of Code Hackathon (Hexa IT Club)</span>
-                  <i class="fas fa-external-link-alt cert-link"></i>
-                </a>
-                <a href="https://www.udemy.com/certificate/UC-c921fc60-774e-4e64-b306-3370b53deac2/" class="cert-item" target="_blank">
-                  <i class="fab fa-html5 cert-icon"></i>
-                  <span>HTML, CSS & JS Course (Udemy)</span>
-                  <i class="fas fa-external-link-alt cert-link"></i>
-                </a>
+          <!-- Raijin -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <div>
+                  <h4 class="timeline-role">Django Developer Intern</h4>
+                  <span class="timeline-company">Raijin Tech Pvt Ltd</span>
+                </div>
+                <span class="timeline-duration">Nov 2024 - Feb 2025</span>
               </div>
-              <div class="timeline-dot"></div>
+              <ul class="timeline-desc">
+                <li>Collaborated on building and tuning web backends, boosting query response times by 20%.</li>
+                <li>Designed and documented API endpoints with Swagger/Postman for frontend consumption.</li>
+                <li>Optimized relational database queries, schemas, and models.</li>
+                <li>Configured Git-based code reviews and contributed to automated build pipelines.</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Download Button -->
-          <div class="download-container">
-            <a href="asset/CV/SHUBHAM-CV.pdf" download class="download-btn">
-              Download CV
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-              </svg>
+          <h3 class="subsection-heading" style="margin-left: 0; margin-top: 32px; margin-bottom: 24px;">Education</h3>
+
+          <!-- Patan Campus -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <div>
+                  <h4 class="timeline-role">Bachelor of Computer Application (BCA)</h4>
+                  <span class="timeline-company">Patan Multiple Campus, Tribhuvan University</span>
+                </div>
+                <span class="timeline-duration">2021 - Present</span>
+              </div>
+              <ul class="timeline-desc">
+                <li>Focusing on Web Architectures, Database Management, and Software Engineering methodologies.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Certifications -->
+        <div class="certifications-section">
+          <h3 class="subsection-heading" style="margin-bottom: 24px; text-align: center;">Certifications</h3>
+          <div class="certs-grid">
+            <a href="https://www.udemy.com/certificate/UC-64537fe8-37c3-4832-adce-49924003416f/" class="cert-card" target="_blank">
+              <div class="cert-info">
+                <i class="fab fa-python cert-icon"></i>
+                <span class="cert-title">Django Rest Framework (Udemy)</span>
+              </div>
+              <i class="fas fa-external-link-alt cert-arrow"></i>
+            </a>
+            <a href="https://www.udemy.com/certificate/UC-4b52db27-148a-4476-a543-ad921a423075/" class="cert-card" target="_blank">
+              <div class="cert-info">
+                <i class="fab fa-git-alt cert-icon"></i>
+                <span class="cert-title">Git and GitHub Masterclass (Udemy)</span>
+              </div>
+              <i class="fas fa-external-link-alt cert-arrow"></i>
+            </a>
+            <a href="https://www.hackerrank.com/certificates/4721f3e52a79" class="cert-card" target="_blank">
+              <div class="cert-info">
+                <i class="fab fa-python cert-icon"></i>
+                <span class="cert-title">Python Developer (HackerRank)</span>
+              </div>
+              <i class="fas fa-external-link-alt cert-arrow"></i>
+            </a>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_oLmvBe9Yn4PJbgmof_1742225766570_completion_certificate.pdf" class="cert-card" target="_blank">
+              <div class="cert-info">
+                <i class="fab fa-aws cert-icon"></i>
+                <span class="cert-title">AWS Solution Architect Simulation (Forage)</span>
+              </div>
+              <i class="fas fa-external-link-alt cert-arrow"></i>
+            </a>
+            <a href="https://imgur.com/a/Arzw3AE" class="cert-card" target="_blank">
+              <div class="cert-info">
+                <i class="fas fa-code cert-icon"></i>
+                <span class="cert-title">Clash of Code Hackathon Winner</span>
+              </div>
+              <i class="fas fa-external-link-alt cert-arrow"></i>
+            </a>
+            <a href="https://www.udemy.com/certificate/UC-c921fc60-774e-4e64-b306-3370b53deac2/" class="cert-card" target="_blank">
+              <div class="cert-info">
+                <i class="fab fa-html5 cert-icon"></i>
+                <span class="cert-title">HTML, CSS & JavaScript Course (Udemy)</span>
+              </div>
+              <i class="fas fa-external-link-alt cert-arrow"></i>
             </a>
           </div>
         </div>
+
+        <div class="resume-download-btn">
+          <a href="asset/CV/SHUBHAM-CV.pdf" download class="btn btn-primary">
+            Download Full CV <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section (Row List Inspired by Kaushal's) -->
+    <section id="projects" class="content-section">
+      <div class="section-header">
+        <span class="section-tag">03 / Works</span>
+        <h2 class="section-title">Selected Projects</h2>
+      </div>
+      
+      <div class="projects-list">
+        
+        <!-- Project 1: UpStart SAT Platform -->
+        <a href="https://github.com/SHUBHAM-NIRMAL18" class="project-row" target="_blank">
+          <span class="project-index">01</span>
+          <div class="project-info-side">
+            <h3 class="project-row-title">UpStart SAT Platform</h3>
+            <div class="project-row-badges">
+              <span class="project-row-badge">Django</span>
+              <span class="project-row-badge">PostgreSQL</span>
+              <span class="project-row-badge">Web Application</span>
+            </div>
+          </div>
+          <p class="project-row-desc">
+            A timed mock test platform built with Django for SAT preparation, featuring performance metrics, randomized query question pools, and database optimizations.
+          </p>
+          <div class="project-row-link">
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 1.1rem;"></i>
+          </div>
+        </a>
+
+        <!-- Project 2: Medlife E-Shop -->
+        <a href="https://github.com/SHUBHAM-NIRMAL18/-MEDLIFE-Online_Pharmacy_System" class="project-row" target="_blank">
+          <span class="project-index">02</span>
+          <div class="project-info-side">
+            <h3 class="project-row-title">Medlife Online Pharmacy</h3>
+            <div class="project-row-badges">
+              <span class="project-row-badge">Django</span>
+              <span class="project-row-badge">E-Commerce</span>
+              <span class="project-row-badge">MySQL</span>
+            </div>
+          </div>
+          <p class="project-row-desc">
+            A comprehensive web store for pharmacy products featuring dynamic searching, shopping cart actions, secure checkout checkout processes, and a rich admin backend.
+          </p>
+          <div class="project-row-link">
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 1.1rem;"></i>
+          </div>
+        </a>
+
+        <!-- Project 3: Crop Prediction -->
+        <a href="https://github.com/SHUBHAM-NIRMAL18/crop-prediction" class="project-row" target="_blank">
+          <span class="project-index">03</span>
+          <div class="project-info-side">
+            <h3 class="project-row-title">Crop Prediction Portal</h3>
+            <div class="project-row-badges">
+              <span class="project-row-badge">Django ORM</span>
+              <span class="project-row-badge">MySQL</span>
+              <span class="project-row-badge">Agricultural Tech</span>
+            </div>
+          </div>
+          <p class="project-row-desc">
+            Predictive website analyzing soil variables (N, P, K, pH, rainfall) to suggest optimal crops, utilizing optimized Django DB queries.
+          </p>
+          <div class="project-row-link">
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 1.1rem;"></i>
+          </div>
+        </a>
+
+        <!-- Project 4: Movfix Streaming -->
+        <a href="https://movfix-bay.vercel.app/" class="project-row" target="_blank">
+          <span class="project-index">04</span>
+          <div class="project-info-side">
+            <h3 class="project-row-title">MovFix Streaming Hub</h3>
+            <div class="project-row-badges">
+              <span class="project-row-badge">JavaScript</span>
+              <span class="project-row-badge">Vercel Deployment</span>
+              <span class="project-row-badge">Frontend UI</span>
+            </div>
+          </div>
+          <p class="project-row-desc">
+            A highly polished film catalog streaming mockup UI offering movie filtering, searching, grid rendering, and media assets layout.
+          </p>
+          <div class="project-row-link">
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 1.1rem;"></i>
+          </div>
+        </a>
+
+        <!-- Project 5: UI/UX Store Website -->
+        <a href="https://www.figma.com/proto/9JhYFiYe5KUe00UmugnKzt/UXA-C1-Glen-Pro-Beauty?node-id=1678-10738&page-id=1678%3A9991&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=1678%3A9994&t=T4IltOvKCN8D3nAT-1&type=design&viewport=101%2C102%2C0.05" class="project-row" target="_blank">
+          <span class="project-index">05</span>
+          <div class="project-info-side">
+            <h3 class="project-row-title">Glen Pro Beauty Design</h3>
+            <div class="project-row-badges">
+              <span class="project-row-badge">Figma</span>
+              <span class="project-row-badge">UI/UX Prototype</span>
+              <span class="project-row-badge">Design Library</span>
+            </div>
+          </div>
+          <p class="project-row-desc">
+            High-fidelity prototype designs built in Figma, implementing standard user flows, micro-components styling, and grid consistency.
+          </p>
+          <div class="project-row-link">
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 1.1rem;"></i>
+          </div>
+        </a>
+
       </div>
 
-      <!-- Projects Section Template -->
-      <div id="projects-content" class="content-section">
-        <h2 class="section-heading">My Projects</h2>
-        
-        <div class="projects-container">
-          <!-- Project 1 - UpStart SAT Platform
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="asset/Project/upstart.png" alt="UpStart SAT Platform" class="project-image">
-              <div class="project-categories">
-                <span class="category-badge web-app">Web Application</span>
-                <span class="category-badge backend">Backend</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">UpStart SAT Preparation Platform</h3>
-              <p class="project-description">
-                Django-based mock test platform for SAT aspirants featuring timed exams, performance analytics, and question randomization. 
-                Utilized PostgreSQL to manage 1000+ questions and user test histories, optimizing queries for real-time result generation.
-              </p>
-              <div class="project-links">
-                <a href="https://upstartsatprep.com" 
-                   class="github-link"
-                   target="_blank">
-                  <i class="fas fa-external-link-alt"></i>
-                  Live Site
-                </a>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Project 2 - Medlife -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="asset/Project/Medlife.png" alt="E-Commerce Platform" class="project-image">
-              <div class="project-categories">
-                <span class="category-badge web-app">Web Application</span>
-                <span class="category-badge backend">Backend</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Medlife Online Pharmacy Platform</h3>
-              <p class="project-description">
-                MEDLIFE is an innovative online pharmacy system designed to provide a seamless and convenient shopping experience for customers seeking pharmacy products. 
-                Features include product management, user authentication, payment gateway integration, and admin dashboard.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/SHUBHAM-NIRMAL18/-MEDLIFE-Online_Pharmacy_System" 
-                   class="github-link"
-                   target="_blank">
-                  <i class="fab fa-github"></i>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 - Crop Prediction -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="asset/Project/crop.png" alt="Crop Prediction System" class="project-image">
-              <div class="project-categories">
-                <span class="category-badge web-app">Web Application</span>
-                <span class="category-badge backend">Backend</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Crop Prediction System</h3>
-              <p class="project-description">
-                A Django-based web application for farmers to predict optimal crops using soil data (N, P, pH, rainfall). 
-                Leveraged Django ORM for efficient MySQL database operations and optimized queries for performance.
-              </p>
-              <div class="project-links">
-                <a href="https://github.com/SHUBHAM-NIRMAL18/crop-prediction" 
-                   class="github-link"
-                   target="_blank">
-                   <i class="fab fa-github"></i>
-                  View Code
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 4 - MovFix -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="asset/Project/Movfix.png" alt="MovFix Platform" class="project-image">
-              <div class="project-categories">
-                <span class="category-badge web-app">Web Application</span>
-                <span class="category-badge frontend">Frontend</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">MovFix</h3>
-              <p class="project-description">
-                Movfix is an online platform offering a wide array of movies and TV shows for streaming. Users can explore various genres, access detailed information about each title, 
-                and enjoy features like offline downloads and multi-device compatibility.
-              </p>
-              <div class="project-links">
-                <a href="https://movfix-bay.vercel.app/" 
-                   class="github-link"
-                   target="_blank">
-                   <i class="fas fa-external-link-alt"></i>
-                  Live Site
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 5 - Store Design -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="asset/Project/ui-ux.png" alt="Portfolio Design" class="project-image">
-              <div class="project-categories">
-                <span class="category-badge uiux">UI/UX</span>
-                <span class="category-badge frontend">Design</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Store Website Design</h3>
-              <p class="project-description">
-                Modern store design system with Figma. Includes responsive layouts,
-                component library, and interactive prototypes with professional UI/UX principles.
-              </p>
-              <div class="project-links">
-                <a href="https://www.figma.com/proto/9JhYFiYe5KUe00UmugnKzt/UXA-C1-Glen-Pro-Beauty?node-id=1678-10738&page-id=1678%3A9991&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=1678%3A9994&t=T4IltOvKCN8D3nAT-1&type=design&viewport=101%2C102%2C0.05" 
-                   class="github-link"
-                   target="_blank">
-                   <i class="fab fa-figma"></i>
-                  View Design
-              </a>
-              </div>
-            </div>
+      <div class="glass-card github-cta">
+        <div class="github-cta-text">
+          <i class="fab fa-github"></i>
+          <div>
+            <h4 style="font-family: var(--font-heading); font-size: 1.25rem;">Looking for more code?</h4>
+            <p>I maintain multiple open-source repositories covering database query tuning, backend authentication, and REST APIs.</p>
           </div>
         </div>
-        <div class="github-cta">
-          <div class="cta-content">
-            <i class="fab fa-github"></i>
-            <p>For more projects on backend and API development, please review my GitHub profile.</p>
-          </div>
-          <a href="https://github.com/SHUBHAM-NIRMAL18" target="_blank" class="cta-button">View GitHub</a>
-        </div>
+        <a href="https://github.com/SHUBHAM-NIRMAL18" target="_blank" class="btn btn-secondary">Visit GitHub</a>
       </div>
+    </section>
 
-      <!-- Contact Section Template -->
-      <div id="contact-content" class="content-section">
-        <h2 class="section-heading">Get in Touch</h2>
-        
-        <div class="contact-container">
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+      <div class="section-header">
+        <span class="section-tag">04 / Connectivity</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      
+      <div class="contact-container">
+        <div class="glass-card">
           <form class="contact-form" id="contactForm">
             <div class="form-group">
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                required 
-                placeholder=" "
-              />
-              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required class="form-input" placeholder=" " />
+              <label for="name" class="form-label">Full Name</label>
             </div>
 
             <div class="form-group">
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                required 
-                placeholder=" "
-              />
-              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required class="form-input" placeholder=" " />
+              <label for="email" class="form-label">Email Address</label>
             </div>
 
             <div class="form-group">
-              <input 
-                type="text" 
-                id="subject" 
-                name="subject" 
-                required 
-                placeholder=" "
-              />
-              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required class="form-input" placeholder=" " />
+              <label for="subject" class="form-label">Subject</label>
             </div>
 
             <div class="form-group">
-              <textarea 
-                id="message" 
-                name="message" 
-                rows="5" 
-                required 
-                placeholder=" "
-              ></textarea>
-              <label for="message">Your Message</label>
+              <textarea id="message" name="message" required class="form-input" placeholder=" "></textarea>
+              <label for="message" class="form-label">Your Message</label>
             </div>
 
-            <button type="submit" class="submit-btn">
-              Send Message
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-              </svg>
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 14px 36px;">
+              Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
             </button>
           </form>
         </div>
       </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Floating AI Chatbot Widget (Housings the AI Avatar) ===== -->
+  <div class="chatbot-widget" id="chatbotWidget">
+    <button class="chatbot-toggle-btn" id="chatbotToggle" title="Talk to Shubham's AI Avatar">
+      <img src="asset/avatar.png" alt="Shubham AI Avatar">
+      <span class="chatbot-status-dot"></span>
+    </button>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+      <!-- Header -->
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <img src="asset/avatar.png" alt="Shubham AI Avatar">
+          <div class="chatbot-header-title">
+            <h4>Shubham (AI Avatar)</h4>
+            <span>Online</span>
+          </div>
+        </div>
+        <button class="chatbot-close-btn" id="chatbotClose" aria-label="Close Chat">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Message Log -->
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chat-bubble bot">
+          Hey there! I am Shubham's interactive AI avatar. Ask me anything about his skills, experience, projects, or how to reach out to him!
+        </div>
+      </div>
+      
+      <!-- Quick Action Chips -->
+      <div class="chatbot-chips">
+        <button class="chat-chip" data-question="What are your core skills?">Skills</button>
+        <button class="chat-chip" data-question="Tell me about your projects.">Projects</button>
+        <button class="chat-chip" data-question="Show your work experience.">Experience</button>
+        <button class="chat-chip" data-question="How can I contact you?">Contact</button>
+      </div>
+      
+      <!-- Input Bar -->
+      <div class="chatbot-input-bar">
+        <input type="text" id="chatInput" placeholder="Ask a question..." aria-label="Ask a question">
+        <button class="chatbot-send-btn" id="chatSendBtn" aria-label="Send Message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
     </div>
   </div>
 
+  <!-- ===== Footer Section ===== -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-socials">
+        <a href="https://github.com/SHUBHAM-NIRMAL18" class="social-link" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/shubham-nirmal-3167671b9/" class="social-link" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://x.com/shubhamnirmal" class="social-link" target="_blank" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+      <div class="footer-text">
+        &copy; <span id="year">2026</span> Shubham Nirmal. Crafted with <i class="fas fa-heart"></i> and premium vibes.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Interactive Scripts ===== -->
   <script>
-    // Mobile menu functionality
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const sidebarClose = document.getElementById('sidebarClose');
-    const sidebar = document.getElementById('sidebar');
-    const mobileOverlay = document.getElementById('mobileOverlay');
+    // 1. Preloader handling & Scroll-based Skill fills
+    window.addEventListener('DOMContentLoaded', () => {
+      // Set active year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
 
-    function toggleMobileMenu() {
-      sidebar.classList.toggle('mobile-open');
-      mobileOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    }
+      // Enforce preloader minimum duration (1.5s) for a premium intro feel
+      setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('fade-out');
+        document.body.classList.remove('loading-active');
+      }, 1500);
 
-    function closeMobileMenu() {
-      sidebar.classList.remove('mobile-open');
-      mobileOverlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
+      // Start typewriter animation after preloader ends
+      setTimeout(startTypewriter, 1800);
+      
+      // Hook scroll listener to fill skills bars when scrolled into view
+      window.addEventListener('scroll', fillSkillBars);
+      fillSkillBars(); // initial check
+    });
 
-    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-    sidebarClose.addEventListener('click', closeMobileMenu);
-    mobileOverlay.addEventListener('click', closeMobileMenu);
+    function fillSkillBars() {
+      const skillsSection = document.getElementById('about');
+      const rect = skillsSection.getBoundingClientRect();
+      const isVisible = (rect.top <= window.innerHeight - 100);
 
-    // Handle initial load and navigation
-    function initializeSPA() {
-      // Load initial content
-      const initialSection = window.location.hash.substring(1) || 'about';
-      loadContent(initialSection);
-
-      // Setup navigation click handlers
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const section = this.getAttribute('href').substring(1);
-          history.pushState({}, '', `#${section}`);
-          loadContent(section);
-          
-          // Close mobile menu if open
-          closeMobileMenu();
+      if (isVisible) {
+        document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          const targetPercent = bar.getAttribute('data-percent');
+          bar.style.width = targetPercent;
         });
-      });
+      }
+    }
 
-      // Handle back/forward navigation
-      window.addEventListener('popstate', () => {
-        const section = window.location.hash.substring(1);
-        loadContent(section);
-      });
+    // 2. Vibe Selector dropdown toggle
+    const vibeBtn = document.getElementById('vibeBtn');
+    const vibeDropdown = document.getElementById('vibeDropdown');
+    const activeVibeNameElement = document.getElementById('active-vibe-name');
 
-      // Handle window resize
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-          closeMobileMenu();
+    // Load active vibe from local storage or set default 'emerald'
+    const currentVibe = localStorage.getItem('shubham-portfolio-vibe') || 'emerald';
+    setVibe(currentVibe);
+
+    vibeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      vibeDropdown.classList.toggle('show');
+    });
+
+    // Click outside dropdown closes it
+    document.addEventListener('click', () => {
+      vibeDropdown.classList.remove('show');
+    });
+
+    // Add click events to vibe choices
+    document.querySelectorAll('.vibe-option').forEach(option => {
+      option.addEventListener('click', function() {
+        const vibeVal = this.getAttribute('data-vibe-val');
+        setVibe(vibeVal);
+        
+        // Highlight active button in list
+        document.querySelectorAll('.vibe-option').forEach(o => o.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    function setVibe(vibe) {
+      document.body.setAttribute('data-vibe', vibe);
+      localStorage.setItem('shubham-portfolio-vibe', vibe);
+      
+      // Update displayed name in the picker button
+      const vibeNames = {
+        emerald: 'Emerald',
+        cyberpunk: 'Cyberpunk',
+        sunset: 'Sunset',
+        noir: 'Stark Noir'
+      };
+      activeVibeNameElement.textContent = vibeNames[vibe] || 'Emerald';
+    }
+
+    // 3. Mobile Navigation Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = mobileMenuToggle.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.className = 'fas fa-times';
+      } else {
+        icon.className = 'fas fa-bars';
+      }
+    });
+
+    // Close menu when links are clicked on mobile
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+      });
+    });
+
+    // 4. Typewriter Animation for Hero Section
+    const words = ["Python Developer.", "Backend Engineer.", "Full Stack Developer.", "AI Explorer."];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter-text');
+    let typingSpeed = 100;
+
+    function startTypewriter() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        // Deleting characters
+        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        // Typing characters
+        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        // Pause at completion before deleting
+        typingSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typingSpeed = 500;
+      }
+
+      setTimeout(startTypewriter, typingSpeed);
+    }
+
+    // 5. Scroll Spy (Highlighting active link in navbar on scroll)
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
         }
       });
-    }
 
-    // Content loading function
-    function loadContent(section) {
-      const contentContainer = document.getElementById('content-container');
-      const template = document.getElementById(`${section}-content`);
-
-      // Clear current content
-      contentContainer.innerHTML = '';
-
-      // Load new content if template exists
-      if (template) {
-        const content = template.cloneNode(true);
-        contentContainer.appendChild(content);
-      }
-
-      // Update active navigation
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${section}`);
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').substring(1) === current) {
+          item.classList.add('active');
+        }
       });
+    });
 
-      // Smooth scroll to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    // 6. Contact Form email integration via mailto
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      const mailtoLink = `mailto:suvamniraml456@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+
+      // Open user's default email client
+      window.location.href = mailtoLink;
+
+      alert('Thank you, ' + name + '! Your mail client will now open with your message details.');
+      contactForm.reset();
+    });
+
+    // 7. Interactive AI Avatar Chatbot Functionality
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatInput = document.getElementById('chatInput');
+    const chatSendBtn = document.getElementById('chatSendBtn');
+
+    // Toggle chatbot window open/close
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWindow.classList.toggle('open');
+      // Scroll to bottom when opening
+      if (chatbotWindow.classList.contains('open')) {
+        setTimeout(() => {
+          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 100);
+      }
+    });
+
+    chatbotClose.addEventListener('click', () => {
+      chatbotWindow.classList.remove('open');
+    });
+
+    // Add chips action
+    document.querySelectorAll('.chat-chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        const questionText = this.getAttribute('data-question');
+        sendUserMessage(questionText);
       });
+    });
 
-      // Setup contact form if on contact page
-      if (section === 'contact') {
-        setupContactForm();
+    // Send input message
+    chatSendBtn.addEventListener('click', () => {
+      const msg = chatInput.value.trim();
+      if (msg) {
+        sendUserMessage(msg);
+        chatInput.value = '';
       }
-    }
+    });
 
-    // Contact form functionality
-    function setupContactForm() {
-      const form = document.getElementById('contactForm');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Get form data
-          const formData = new FormData(form);
-          const name = formData.get('name');
-          const email = formData.get('email');
-          const subject = formData.get('subject');
-          const message = formData.get('message');
-          
-          // Create mailto link
-          const mailtoLink = `mailto:suvamniraml456@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-          
-          // Open email client
-          window.location.href = mailtoLink;
-          
-          // Show success message
-          alert('Thank you for your message! Your email client should open now.');
-          
-          // Reset form
-          form.reset();
-        });
-      }
-    }
-
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', initializeSPA);
-
-    // Smooth scrolling for anchor links
-    document.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(e.target.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const msg = chatInput.value.trim();
+        if (msg) {
+          sendUserMessage(msg);
+          chatInput.value = '';
         }
       }
     });
+
+    function sendUserMessage(text) {
+      // Create user message bubble
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.textContent = text;
+      chatbotMessages.appendChild(userBubble);
+      
+      // Scroll to bottom
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      
+      // Simulate typing indicator and response
+      simulateBotResponse(text);
+    }
+
+    function simulateBotResponse(userMsg) {
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'chat-bubble bot';
+      typingBubble.innerHTML = '<i class="fas fa-ellipsis-h fa-pulse"></i>';
+      chatbotMessages.appendChild(typingBubble);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+      // Select response based on keywords
+      const query = userMsg.toLowerCase();
+      let reply = "";
+
+      if (query.includes('skill') || query.includes('tech') || query.includes('toolkit')) {
+        reply = "I specialize in backend development with Python, Django, and Django REST Framework. I also work with Next.js, React, JavaScript, and TypeScript on the frontend, and handle PostgreSQL, MySQL, Docker, and Git.";
+      } else if (query.includes('project') || query.includes('work') || query.includes('portfolio')) {
+        reply = "Some of my featured projects are:\n1. UpStart SAT Platform (Django + PostgreSQL mock test portal)\n2. Medlife Online Pharmacy (Django + MySQL E-commerce)\n3. Crop Prediction Portal (Agricultural analysis system)\n4. MovFix Streaming Hub (Catalog UI)\nExplore details in the 'Projects' section!";
+      } else if (query.includes('experience') || query.includes('job') || query.includes('fellowship') || query.includes('intern')) {
+        reply = "I served as a Software Development Fellow at Cloco Nepal Inc (Jun - Aug 2025) building Next.js clients and DRF APIs. I was also a Django Developer Intern at Raijin Tech Pvt Ltd (Nov 2024 - Feb 2025) where I worked on database optimizations and REST APIs.";
+      } else if (query.includes('contact') || query.includes('reach') || query.includes('email') || query.includes('phone') || query.includes('hire')) {
+        reply = "You can contact me at suvamniraml456@gmail.com or call me at +977-9821287731. I am based in Lalitpur, Nepal, and I'd love to collaborate on your next venture!";
+      } else if (query.includes('hi') || query.includes('hello') || query.includes('hey')) {
+        reply = "Hello! Thanks for visiting my portfolio. How can I help you learn more about my skills, projects, or professional journey today?";
+      } else {
+        reply = "I'm Shubham's AI assistant. Feel free to ask about my core skills, professional experience, projects, or contact details!";
+      }
+
+      // Replace typing bubble with actual message after a natural delay
+      setTimeout(() => {
+        typingBubble.textContent = reply;
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }, 750);
+    }
   </script>
 </body>
 </html>
