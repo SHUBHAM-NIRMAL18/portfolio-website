@@ -74,7 +74,7 @@
             I'm a&nbsp;<span id="typewriter-text"></span><span class="typewriter-cursor"></span>
           </div>
           <p class="hero-description">
-            Python Developer with 1+ year of proven Django development experience, specializing in scalable backend APIs, database optimization, and modern frontend integrations. I design robust web applications that align technical functionality with premium user experiences.
+            Python Developer with 2+ years of proven Django development experience, specializing in scalable backend APIs, database optimization, and modern frontend integrations. I design robust web applications that align technical functionality with premium user experiences.
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
@@ -93,7 +93,7 @@
       <div class="about-grid">
         <div class="about-bio">
           <p>
-            Python Developer with 1+ year of proven Django development experience, including software fellowships and engineering internships. 
+            Python Developer with 2+ years of proven Django development experience, including software fellowships and engineering internships. 
             Skilled in designing RESTful APIs, database tuning, and backend architectures to deliver high-performance web solutions. 
             Passionate about exploring modern architectures, React/Next.js UI interfaces, and integrating generative AI tools to build state-of-the-art products.
           </p>
@@ -219,6 +219,28 @@
                 <div class="skill-bar-fill" data-percent="82%"></div>
               </div>
             </div>
+
+            <div class="skill-card-box">
+              <div class="skill-card-header">
+                <img src="asset/backend.png" alt="System Design">
+                <h4>System Design & Architecture</h4>
+              </div>
+              <p class="skill-card-desc">Designing scalable distributed backends, load layouts, message parsing systems, and caching database patterns.</p>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-percent="80%"></div>
+              </div>
+            </div>
+
+            <div class="skill-card-box">
+              <div class="skill-card-header">
+                <img src="asset/docker.png" alt="DevOps">
+                <h4>DevOps & CI/CD Pipelines</h4>
+              </div>
+              <p class="skill-card-desc">Managing containerized instances using Docker, AWS deployments, and automated testing deployment pipelines (Vercel, Render).</p>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-percent="85%"></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -238,6 +260,25 @@
           
           <h3 class="subsection-heading" style="margin-left: 0; margin-bottom: 24px;">Professional Experience</h3>
           
+          <!-- Honest Forwarder -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <div>
+                  <h4 class="timeline-role">Software Developer</h4>
+                  <span class="timeline-company">Honest Forwarder PVT. LTD.</span>
+                </div>
+                <span class="timeline-duration">Sep 2025 - Present</span>
+              </div>
+              <ul class="timeline-desc">
+                <li>Contributed to a 32% increase in overall sales by redesigning and optimizing Django REST Framework endpoints to reduce page-load times and eliminate checkout bottlenecks.</li>
+                <li>Engineered Python scripts to scrape competitor product data, automate Google Merchant Center-ready feeds, and schedule daily sync tasks via Cron Jobs.</li>
+                <li>Optimized database queries using indexing and select_related/prefetch_related, cutting API response times for high-traffic endpoints like product listings.</li>
+              </ul>
+            </div>
+          </div>
+
           <!-- Cloco -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -861,7 +902,7 @@
       } else if (query.includes('project') || query.includes('work') || query.includes('portfolio')) {
         reply = "Some of my featured projects are:\n1. MakeCV Resume Builder (AI-Powered CV Builder)\n2. Thunder Kanban (Kanban Board App)\n3. UpStart SAT Platform (Django + PostgreSQL Mock Tests)\n4. Medlife Online Pharmacy (Django + MySQL E-commerce)\n5. Crop Prediction Portal (Agricultural analysis system)\nExplore their details and interactive reviews in the 'Projects' section!";
       } else if (query.includes('experience') || query.includes('job') || query.includes('fellowship') || query.includes('intern')) {
-        reply = "I served as a Software Development Fellow at Cloco Nepal Inc (Jun - Aug 2025) building Next.js clients and DRF APIs. I was also a Django Developer Intern at Raijin Tech Pvt Ltd (Nov 2024 - Feb 2025) where I worked on database optimizations and REST APIs.";
+        reply = "My professional experience includes:\n1. Software Developer at Honest Forwarder PVT. LTD. (Sep 2025 - Present) optimizing Django REST Framework APIs, building web scrapers, and database query tuning.\n2. Software Development Fellow at Cloco Nepal Inc (Jun - Aug 2025) building Next.js clients and DRF APIs.\n3. Django Developer Intern at Raijin Tech Pvt Ltd (Nov 2024 - Feb 2025) optimizing database queries and REST APIs.";
       } else if (query.includes('contact') || query.includes('reach') || query.includes('email') || query.includes('phone') || query.includes('hire')) {
         reply = "You can contact me at suvamniraml456@gmail.com or call me at +977-9821287731. I am based in Lalitpur, Nepal, and I'd love to collaborate on your next venture!";
       } else if (query.includes('hi') || query.includes('hello') || query.includes('hey')) {
