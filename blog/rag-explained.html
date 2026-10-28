@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>RAG Explained: Build an AI Chatbot That Knows Your Business | Shubham Nirmal</title>
+  <meta name="description" content="Why AI chatbots make things up, how Retrieval-Augmented Generation (RAG) fixes it, and a small Django + pgvector example you can build on. Written in plain English." />
+  <meta name="author" content="Shubham Nirmal" />
+  <link rel="canonical" href="https://www.shubhamnirmal.com.np/blog/rag-explained.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="RAG explained: how to build an AI chatbot that knows your business" />
+  <meta property="og:description" content="Why chatbots make things up, how retrieval fixes it, and a Django + pgvector example." />
+  <meta property="og:url" content="https://www.shubhamnirmal.com.np/blog/rag-explained.html" />
+  <meta property="og:image" content="https://www.shubhamnirmal.com.np/asset/img/og-shubham-nirmal.jpg" />
+  <meta property="article:published_time" content="2026-10-14" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="../asset/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../style/style.css" />
+  <script>
+    (function () { var d = document.documentElement; d.classList.add('js', 'no-intro');
+      try { var t = localStorage.getItem('sn-theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {} })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "RAG explained: how to build an AI chatbot that knows your business",
+    "datePublished": "2026-10-14",
+    "author": { "@type": "Person", "name": "Shubham Nirmal", "url": "https://www.shubhamnirmal.com.np/" },
+    "image": "https://www.shubhamnirmal.com.np/asset/img/og-shubham-nirmal.jpg",
+    "mainEntityOfPage": "https://www.shubhamnirmal.com.np/blog/rag-explained.html",
+    "keywords": "RAG, retrieval-augmented generation, AI chatbot, Django, pgvector, embeddings"
+  }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-row">
+      <a href="../index.html" class="brand"><span class="brand-mark">SN</span><span class="brand-name">Shubham Nirmal</span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#work" class="nav-link">Work</a>
+        <a href="../index.html#blog" class="nav-link active">Blog</a>
+        <a href="../index.html#contact" class="nav-link nav-cta-mobile">Contact</a>
+      </nav>
+      <div class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme"><svg class="ico-sun"><use href="#i-sun"/></svg><svg class="ico-moon"><use href="#i-moon"/></svg></button>
+        <a class="btn btn-primary btn-sm nav-cta" href="../index.html#contact">Let's talk</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="wrap article-hero">
+      <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#blog">Blog</a> / AI</p>
+      <span class="tag">AI · Guide</span>
+      <h1 class="article-title">RAG explained: how to build an AI chatbot that knows your business</h1>
+      <div class="byline">
+        <img src="../asset/img/avatar-96.webp" alt="" width="44" height="44" />
+        <span><b>Shubham Nirmal</b>14 Oct 2026 · 8 min read</span>
+      </div>
+    </header>
+
+    <div class="wrap article-wrap">
+      <article class="prose">
+        <p>Ask a general AI chatbot "What's your return policy?" on a shop's website and it will happily invent one. It sounds confident, it's polite, and it's wrong. That's the number-one reason businesses don't trust AI assistants.</p>
+        <p><strong>Retrieval-Augmented Generation (RAG)</strong> is how you fix that. It's the technique behind most useful company chatbots today, and the idea is simpler than the name suggests.</p>
+
+        <h2 id="idea">The idea: an open-book exam</h2>
+        <p>A plain language model answers from memory, like a student in a closed-book exam. If it never learned your return policy, it guesses.</p>
+        <p>RAG turns it into an <strong>open-book exam</strong>. Before answering, the system looks up the most relevant pages from <em>your</em> documents and hands them to the model with an instruction: "answer using only this." Now the answer is grounded in your real policy, and it can even show which page it came from.</p>
+
+        <figure>
+          <div class="flow">
+            <span>Question</span><b>→</b><span>Search your docs</span><b>→</b><span>Top 5 passages</span><b>→</b><span class="acc">AI writes the answer</span><b>→</b><span>Answer + sources</span>
+          </div>
+          <figcaption>The whole RAG loop. The model never has to "remember" your business; it just reads.</figcaption>
+        </figure>
+
+        <h2 id="pipeline">How it works, step by step</h2>
+        <h3>1. Collect and clean your knowledge</h3>
+        <p>PDFs, FAQs, product pages, Notion docs, support tickets. Garbage in, garbage out, so remove duplicates and outdated versions first. This step matters more than the choice of AI model.</p>
+        <h3>2. Split into chunks</h3>
+        <p>Documents are cut into passages of a few hundred words, with a little overlap so sentences aren't cut in half. Each chunk keeps its metadata: title, URL, date.</p>
+        <h3>3. Turn chunks into embeddings</h3>
+        <p>An embedding model converts each chunk into a list of numbers (a vector) that captures its <em>meaning</em>. "Refund window" and "how long do I have to return an item" end up close together even though they share no words.</p>
+        <h3>4. Store them in a vector database</h3>
+        <p>As a Django developer, my favourite option is <strong>pgvector</strong>: it adds vector search to PostgreSQL, so your AI data lives next to your normal app data. No extra service to run.</p>
+        <h3>5. Retrieve, then generate</h3>
+        <p>When a question arrives, it's embedded the same way, the closest chunks are fetched, and those chunks plus the question go to the language model with clear rules.</p>
+
+        <h2 id="code">A minimal Django + pgvector example</h2>
+        <p>This is a stripped-down version of the pattern I use. <code>embed()</code> and <code>llm()</code> stand in for whichever embedding and chat model you choose.</p>
+<pre><code><span class="c"># models.py</span>
+<span class="k">from</span> django.db <span class="k">import</span> models
+<span class="k">from</span> pgvector.django <span class="k">import</span> VectorField
+
+<span class="k">class</span> Chunk(models.Model):
+    source = models.CharField(max_length=255)      <span class="c"># e.g. "returns-policy.pdf"</span>
+    text = models.TextField()
+    embedding = VectorField(dimensions=1536)
+
+
+<span class="c"># rag.py</span>
+<span class="k">from</span> pgvector.django <span class="k">import</span> CosineDistance
+<span class="k">from</span> .models <span class="k">import</span> Chunk
+
+<span class="k">def</span> retrieve(question, k=5):
+    q = embed(question)
+    <span class="k">return</span> (Chunk.objects
+            .annotate(distance=CosineDistance(<span class="s">"embedding"</span>, q))
+            .order_by(<span class="s">"distance"</span>)[:k])
+
+<span class="k">def</span> answer(question):
+    chunks = retrieve(question)
+    context = <span class="s">"\n\n"</span>.join(f<span class="s">"[{c.source}] {c.text}"</span> <span class="k">for</span> c <span class="k">in</span> chunks)
+    prompt = (
+        <span class="s">"Answer using ONLY the context below. Cite sources in [brackets]. "</span>
+        <span class="s">"If the answer isn't in the context, say you don't know.\n\n"</span>
+        f<span class="s">"Context:\n{context}\n\nQuestion: {question}"</span>
+    )
+    <span class="k">return</span> llm(prompt)</code></pre>
+        <p>That's genuinely the core of it: about 25 lines. Everything else is about making it <em>good</em>.</p>
+
+        <h2 id="pitfalls">Where RAG projects go wrong</h2>
+        <ul>
+          <li><strong>Bad chunking.</strong> Chunks that are too big bury the answer; too small and they lose context. Split on headings and paragraphs, not every N characters.</li>
+          <li><strong>Search that only matches meaning.</strong> Vector search can miss exact things like order numbers, SKUs and error codes. Combining it with keyword search ("hybrid search") fixes most of this.</li>
+          <li><strong>No "I don't know".</strong> If retrieval finds nothing relevant, the bot must say so and offer a human, not improvise. Add a minimum similarity threshold.</li>
+          <li><strong>Stale knowledge.</strong> Update a policy and forget to re-index, and the bot quotes the old one. Re-embed changed documents automatically (a nightly job works fine).</li>
+          <li><strong>Never measuring.</strong> Keep a list of 30–50 real customer questions with correct answers and re-test after every change. It's the cheapest quality control there is.</li>
+        </ul>
+
+        <h2 id="vs">RAG or fine-tuning?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>RAG</th><th>Fine-tuning</th></tr></thead>
+            <tbody>
+              <tr><td>Best for</td><td>Facts, policies, docs that change</td><td>Tone, format, specialised style</td></tr>
+              <tr><td>Update knowledge</td><td>Re-index a file in minutes</td><td>Retrain the model</td></tr>
+              <tr><td>Shows sources</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Cost to start</td><td>Low</td><td>Higher</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>For a business chatbot, start with RAG almost every time. Fine-tuning is a later optimisation, and you can combine the two.</p>
+
+        <h2 id="uses">Where it pays off</h2>
+        <ul>
+          <li><strong>Customer support:</strong> answers shipping, returns and product questions 24/7, with links to the source page.</li>
+          <li><strong>Internal knowledge:</strong> new staff ask "how do we process a refund?" instead of digging through drives.</li>
+          <li><strong>E-commerce search:</strong> "a waterproof jacket under $100 for hiking" finds the right products even when the words don't match.</li>
+        </ul>
+
+        <div class="callout">
+          <p><strong>Thinking about an AI assistant for your website or team?</strong> I build RAG chatbots on Django and PostgreSQL that answer from your own content and show their sources. <a href="../index.html#contact">Tell me what you have in mind.</a></p>
+        </div>
+
+        <div class="author-box">
+          <img src="../asset/img/avatar-192.webp" alt="" width="64" height="64" />
+          <div><b>Shubham Nirmal</b><p>Python &amp; Django developer in Lalitpur, Nepal. I build fast backends, automation and AI tools, and mentor people starting out in IT.</p></div>
+        </div>
+      </article>
+
+      <aside class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#idea">The idea</a></li>
+          <li><a href="#pipeline">How it works</a></li>
+          <li><a href="#code">Django + pgvector example</a></li>
+          <li><a href="#pitfalls">Where RAG goes wrong</a></li>
+          <li><a href="#vs">RAG or fine-tuning?</a></li>
+          <li><a href="#uses">Where it pays off</a></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <span class="brand"><span class="brand-mark">SN</span> © 2026 Shubham Nirmal</span>
+      <nav class="footer-links"><a href="../index.html#services">Services</a><a href="../index.html#blog">Blog</a><a href="php2shell-cve-2026-109618-109619.html">Read: PHP2Shell fix guide →</a></nav>
+    </div>
+  </footer>
+  <script src="../js/blog.js"></script>
+</body>
+</html>
