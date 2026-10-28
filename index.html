@@ -2,1108 +2,641 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="asset/favicon.ico">
-  <title>Shubham Nirmal - Personal Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="stylesheet" href="style/style.css?v=1.0.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Shubham Nirmal | Web Developer &amp; AI Integration · Remote / Hybrid · Nepal</title>
+  <meta name="description" content="Shubham Nirmal, software developer in Lalitpur, Nepal (remote & hybrid). Web development with Django, FastAPI and Next.js, AI integration and RAG chatbots, workflow automation and web scraping." />
+  <meta name="author" content="Shubham Nirmal" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.shubhamnirmal.com.np/" />
+  <meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Shubham Nirmal" />
+  <meta property="og:title" content="Shubham Nirmal | Python & Django Developer" />
+  <meta property="og:description" content="Fast, secure web apps, AI chatbots and automation. Based in Lalitpur, Nepal; working with clients worldwide." />
+  <meta property="og:url" content="https://www.shubhamnirmal.com.np/" />
+  <meta property="og:image" content="https://www.shubhamnirmal.com.np/asset/img/og-shubham-nirmal.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Portrait of Shubham Nirmal" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@shubhamnirmal" />
+  <meta name="twitter:image" content="https://www.shubhamnirmal.com.np/asset/img/og-shubham-nirmal.jpg" />
+  <link rel="icon" type="image/x-icon" href="asset/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style/style.css" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null, seen = false;
+      d.classList.add('js');
+      try { t = localStorage.getItem('sn-theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      try { seen = !!sessionStorage.getItem('sn-intro'); } catch (e) {}
+      var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (seen || rm) d.classList.add('no-intro');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.shubhamnirmal.com.np/#person",
+        "name": "Shubham Nirmal",
+        "jobTitle": "Software Engineer",
+        "url": "https://www.shubhamnirmal.com.np/",
+        "image": "https://www.shubhamnirmal.com.np/asset/img/shubham-nirmal-1080.jpg",
+        "email": "mailto:suvamniraml456@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Lalitpur", "addressCountry": "NP" },
+        "worksFor": { "@type": "Organization", "name": "Honest Forwarder Pvt. Ltd." },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Patan Multiple Campus, Tribhuvan University" },
+        "knowsAbout": ["Python", "Django", "Django REST Framework", "FastAPI", "Next.js", "React", "TypeScript", "PostgreSQL", "Redis", "Qdrant", "Celery", "Scrapy", "Retrieval-Augmented Generation", "Workflow automation", "Web scraping"],
+        "sameAs": [
+          "https://github.com/SHUBHAM-NIRMAL18",
+          "https://www.linkedin.com/in/shubham-nirmal-3167671b9/",
+          "https://x.com/shubhamnirmal"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "Shubham Nirmal: Web, AI & Automation",
+        "url": "https://www.shubhamnirmal.com.np/",
+        "image": "https://www.shubhamnirmal.com.np/asset/img/og-shubham-nirmal.jpg",
+        "founder": { "@id": "https://www.shubhamnirmal.com.np/#person" },
+        "areaServed": "Worldwide",
+        "address": { "@type": "PostalAddress", "addressLocality": "Lalitpur", "addressCountry": "NP" },
+        "serviceType": ["Web development", "AI integration", "Backend & API development", "Workflow automation", "Web scraping & data feeds", "1:1 IT career advice"]
+      }
+    ]
+  }
+  </script>
 </head>
-<body class="loading-active">
+<body>
 
-  <!-- ===== Glowing Background Ambient Blobs ===== -->
-  <div class="bg-blob bg-blob-1"></div>
-  <div class="bg-blob bg-blob-2"></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.59-6.64 7.59H.47l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></symbol>
+    <g id="icon-defs" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h10"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m22 2-7 20-4-9-9-4 20-7zM22 2 11 13"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></g></symbol>
+      <!-- service icons -->
+      <symbol id="s-career" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M2.5 20a5.5 5.5 0 0 1 11 0"/><path d="M14 4h7v6h-3l-2 2v-2h-2z"/></g></symbol>
+      <symbol id="s-auto" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="6" height="6" rx="1.5"/><rect x="15.5" y="15" width="6" height="6" rx="1.5"/><path d="M8.5 6h4a3 3 0 0 1 3 3v6"/><path d="m13 12.5 2.5 2.5 2.5-2.5"/><path d="M11 18H6.5a1.5 1.5 0 0 1-1.5-1.5V12"/></g></symbol>
+      <symbol id="s-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4M2.5 8h19"/></g></symbol>
+      <symbol id="s-api" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></g></symbol>
+      <symbol id="s-ai" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 7.5 13.4 10.6 16.5 12 13.4 13.4 12 16.5 10.6 13.4 7.5 12 10.6 10.6z"/><path d="m5.6 5.6 1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></g></symbol>
+      <symbol id="s-scrape" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.5"/><path d="M4 5.5v6c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-6"/><path d="M4 11.5v6c0 1.4 3.6 2.5 8 2.5 1 0 2-.1 2.9-.2"/><path d="m17 16 2 2 3-3"/></g></symbol>
+    </g>
+  </svg>
 
-  <!-- ===== Preloader / Loading Screen ===== -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-content">
-      <div class="preloader-logo" id="preloader-logo">SN</div>
-      <div class="preloader-loader"></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 9v6"/></g></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12 5 5 9-10"/></symbol>
+  </svg>
+
+  <!-- ============ 3D intro ============ -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-stage" id="introStage"></div>
+    <div class="intro-title" id="introTitle">
+      <span class="it-name">Shubham Nirmal</span>
+      <span class="it-role">Frontend · Backend · AI integration</span>
+    </div>
+    <div class="intro-fade" id="introFade"></div>
+    <div class="intro-ui">
+      <div class="intro-progress"><span id="introBar"></span></div>
+      <p class="intro-caption"><span class="intro-dot"></span><span id="introCaption">Setting up the workspace…</span></p>
+      <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
     </div>
   </div>
 
-  <!-- ===== Fixed Navigation Header ===== -->
-  <header class="nav-bar">
-    <div class="container nav-container">
-      <a href="#hero" class="nav-logo">Shubham<span>.</span></a>
-      
-      <nav class="nav-links" id="navLinks">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ Navigation ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-row">
+      <a href="#top" class="brand" aria-label="Shubham Nirmal, home">
+        <span class="brand-mark">SN</span>
+        <span class="brand-name">Shubham Nirmal</span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#work" class="nav-link">Work</a>
         <a href="#about" class="nav-link">About</a>
-        <a href="#resume" class="nav-link">Resume</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link nav-cta-mobile">Contact</a>
       </nav>
-
-      <!-- Vibe & Color Picker Dropdown -->
-      <div class="vibe-picker-container">
-        <button class="vibe-picker-btn" id="vibeBtn" title="Choose Vibe">
-          <i class="fas fa-palette"></i> <span id="active-vibe-name">Emerald</span> <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+      <div class="nav-tools">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme" title="Toggle theme">
+          <svg class="ico-sun"><use href="#i-sun"/></svg><svg class="ico-moon"><use href="#i-moon"/></svg>
         </button>
-        <div class="vibe-dropdown" id="vibeDropdown">
-          <button class="vibe-option active" data-vibe-val="emerald">
-            <span class="vibe-dot emerald"></span> Emerald Aurora
-          </button>
-          <button class="vibe-option" data-vibe-val="cyberpunk">
-            <span class="vibe-dot cyberpunk"></span> Retro Cyberpunk
-          </button>
-          <button class="vibe-option" data-vibe-val="sunset">
-            <span class="vibe-dot sunset"></span> Sunset Bronze
-          </button>
-          <button class="vibe-option" data-vibe-val="noir">
-            <span class="vibe-dot noir"></span> Stark Noir
-          </button>
-        </div>
+        <a class="btn btn-primary btn-sm nav-cta" href="#contact">Let's talk</a>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg><use href="#i-menu"/></svg>
+        </button>
       </div>
-
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
-        <i class="fas fa-bars"></i>
-      </button>
     </div>
   </header>
 
-  <!-- ===== Main Portfolio Sections ===== -->
-  <main class="container main-content">
+  <main id="main">
+    <span id="top"></span>
 
-    <!-- Hero Section (Typography Focused) -->
-    <section id="hero" class="content-section">
-      <div class="hero-layout">
-        <div class="hero-text">
-          <span class="hero-subtitle">Hi, my name is</span>
-          <h1 class="hero-title">Shubham <span>Nirmal</span></h1>
-          <div class="hero-role-wrapper">
-            I'm a&nbsp;<span id="typewriter-text"></span><span class="typewriter-cursor"></span>
-          </div>
-          <p class="hero-description">
-            Python Developer with 2+ years of proven Django development experience, specializing in scalable backend APIs, database optimization, and modern frontend integrations. I design robust web applications that align technical functionality with premium user experiences.
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Open to work · Remote &amp; Hybrid</p>
+          <h1 class="hero-title">I build web products and <span class="hl">AI&nbsp;features</span> that hold up in production.</h1>
+          <p class="hero-lead">
+            Software engineer based in Lalitpur, Nepal. I work across <b>Django</b>, <b>FastAPI</b> and <b>Next.js</b>,
+            from the database schema to the chatbot your customers talk to, and I care about the details that keep it fast.
           </p>
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary magnetic">Start a project <svg><use href="#i-arrow"/></svg></a>
+            <a href="#work" class="btn btn-ghost magnetic">View work</a>
+          </div>
+          <dl class="hero-stats">
+            <div><dt>Sales lift</dt><dd><span class="count" data-to="32">32</span>%</dd><small>after backend optimisation</small></div>
+            <div><dt>Query speed</dt><dd>+<span class="count" data-to="20">20</span>%</dd><small>on a client platform</small></div>
+            <div><dt>Shipped</dt><dd><span class="count" data-to="9">9</span></dd><small>projects in this portfolio</small></div>
+          </dl>
+        </div>
+
+        <aside class="console tilt" aria-label="Quick facts">
+          <div class="console-head">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span>shubham / profile</span>
+            <span class="console-live"><span class="status-dot"></span>live</span>
+          </div>
+          <dl class="console-rows">
+            <div><dt>Role</dt><dd>Software Engineer</dd></div>
+            <div><dt>Focus</dt><dd>Frontend · Backend · AI integration</dd></div>
+            <div><dt>Work mode</dt><dd><span class="pill">Remote</span><span class="pill">Hybrid</span></dd></div>
+            <div><dt>Local time</dt><dd><span class="np-time">--:--</span> <span class="muted">Lalitpur · UTC+5:45</span></dd></div>
+            <div><dt>Replies</dt><dd>Within 24 hours</dd></div>
+            <div><dt>Latest build</dt><dd><a href="#work" data-jump="rag">RAG chatbot backend</a> <span class="muted">FastAPI · Qdrant · Gemini</span></dd></div>
+          </dl>
+          <div class="console-stack">
+            <img src="asset/icons/python.webp" alt="Python" title="Python" width="30" height="30" />
+            <img src="asset/icons/django.webp" alt="Django" title="Django" width="30" height="30" />
+            <span class="tbadge" title="FastAPI">FA</span>
+            <img src="asset/icons/nextjs.webp" alt="Next.js" title="Next.js" width="30" height="30" />
+            <img src="asset/icons/react.webp" alt="React" title="React" width="30" height="30" />
+            <img src="asset/icons/typescript.webp" alt="TypeScript" title="TypeScript" width="30" height="30" />
+            <img src="asset/icons/postgresql.webp" alt="PostgreSQL" title="PostgreSQL" width="30" height="30" />
+            <img src="asset/icons/docker.webp" alt="Docker" title="Docker" width="30" height="30" />
+          </div>
+        </aside>
+      </div>
+
+      <div class="logos-band" aria-label="Companies I've worked with">
+        <div class="wrap logos-row">
+          <span class="logos-label">Worked with</span>
+          <span class="logo-word">Honest Forwarder</span>
+          <span class="logo-word">Cloco Nepal</span>
+          <span class="logo-word">Raijin Tech</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">Services</p>
+          <h2 class="sec-title">What I can build for you</h2>
+          <p class="sec-sub">From frontend and backend to AI integration, automation and data, plus 1:1 mentoring for people starting out in IT.</p>
+        </header>
+
+        <div class="services">
+          <article class="service reveal spot">
+            <span class="service-ico"><svg><use href="#s-web"/></svg></span>
+            <h3>Web Development</h3>
+            <p>Full-stack web apps and business websites: fast, responsive and easy to manage. Next.js and React on the front, Django or FastAPI behind it.</p>
+            <ul class="ticks"><li>Next.js / React</li><li>Dashboards &amp; portals</li><li>SEO-ready</li></ul>
+          </article>
+          <article class="service reveal spot">
+            <span class="service-ico"><svg><use href="#s-ai"/></svg></span>
+            <h3>AI Integration</h3>
+            <p>Add AI where it pays off: RAG chatbots that answer from your documents, smart search, recommendations and LLM-powered workflows inside your existing product.</p>
+            <ul class="ticks"><li>RAG &amp; vector search</li><li>Gemini / OpenAI APIs</li><li>Recommendations</li></ul>
+          </article>
+          <article class="service reveal spot">
+            <span class="service-ico"><svg><use href="#s-api"/></svg></span>
+            <h3>Backend &amp; APIs</h3>
+            <p>Secure REST APIs, clean data models and performance tuning that keeps pages fast as traffic grows.</p>
+            <ul class="ticks"><li>Django / DRF / FastAPI</li><li>JWT &amp; RBAC</li><li>Celery &amp; Redis</li></ul>
+          </article>
+          <article class="service reveal spot">
+            <span class="service-ico"><svg><use href="#s-auto"/></svg></span>
+            <h3>Workflow Automation</h3>
+            <p>Scripts and scheduled jobs that take repetitive work off your team: reports, syncs between tools, spreadsheet and email flows.</p>
+            <ul class="ticks"><li>Python &amp; cron</li><li>API integrations</li><li>Hours saved weekly</li></ul>
+          </article>
+          <article class="service reveal spot">
+            <span class="service-ico"><svg><use href="#s-scrape"/></svg></span>
+            <h3>Web Scraping &amp; Data Feeds</h3>
+            <p>Reliable crawlers for prices, news and product data, plus Google Merchant Center feeds that refresh themselves.</p>
+            <ul class="ticks"><li>Scrapy</li><li>Product feeds</li><li>Scheduled crawls</li></ul>
+          </article>
+          <article class="service reveal spot">
+            <span class="service-ico"><svg><use href="#s-career"/></svg></span>
+            <h3>1:1 IT Career Advice</h3>
+            <p>Personal sessions for students and junior developers: picking a path, a portfolio that gets replies, and interview practice.</p>
+            <a class="text-link" href="#contact" data-subject="1:1 IT career session">Book a session <svg><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+
+        <ol class="process reveal">
+          <li><span class="step">01</span><b>Talk</b><span>A free call about your goal, budget and timeline.</span></li>
+          <li><span class="step">02</span><b>Plan</b><span>A short written scope with milestones and a fixed quote.</span></li>
+          <li><span class="step">03</span><b>Build</b><span>Weekly demos you can click through, not just status updates.</span></li>
+          <li><span class="step">04</span><b>Launch</b><span>Deployment, handover docs and support after go-live.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section section-alt" id="work">
+      <div class="wrap">
+        <div class="work-head">
+          <header class="sec-head reveal">
+            <p class="kicker">Selected work</p>
+            <h2 class="sec-title">Projects I've built</h2>
+            <p class="sec-sub">Every stack listed is what the project actually uses. Open a case study for the details.</p>
+          </header>
+          <div class="filters reveal" role="tablist" aria-label="Filter projects">
+            <button type="button" class="filter active" data-filter="all" role="tab" aria-selected="true">All <span>9</span></button>
+            <button type="button" class="filter" data-filter="web" role="tab" aria-selected="false">Web apps</button>
+            <button type="button" class="filter" data-filter="ai" role="tab" aria-selected="false">AI</button>
+            <button type="button" class="filter" data-filter="data" role="tab" aria-selected="false">Data &amp; scraping</button>
+          </div>
+        </div>
+        <div class="projects" id="projectGrid"></div>
+        <a class="gh-strip reveal" href="https://github.com/SHUBHAM-NIRMAL18?tab=repositories" target="_blank" rel="noopener">
+          <svg class="gh-ico"><use href="#i-github"/></svg>
+          <span><b>More on GitHub</b><small>Source code, READMEs and setup guides for every project</small></span>
+          <svg class="arrow"><use href="#i-ext"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <figure class="about-photo reveal">
+          <picture>
+            <source type="image/webp" srcset="asset/img/shubham-about-560.webp 560w, asset/img/shubham-about-900.webp 900w" sizes="(max-width: 900px) 80vw, 420px" />
+            <img src="asset/img/shubham-nirmal-1080.jpg" width="900" height="1205" alt="Portrait of Shubham Nirmal" loading="lazy" decoding="async" />
+          </picture>
+          <figcaption><span class="status-dot"></span> Lalitpur, Nepal · <span class="np-time">--:--</span></figcaption>
+        </figure>
+
+        <div class="about-copy">
+          <header class="sec-head reveal">
+            <p class="kicker">About me</p>
+            <h2 class="sec-title">Hi, I'm Shubham.</h2>
+          </header>
+          <div class="about-text reveal">
+            <p>I'm a software engineer who enjoys the unglamorous parts of building software: the slow query nobody noticed, the edge case in a payment flow, the README that lets the next person get started in five minutes.</p>
+            <p>Over the last 2+ years I've built Django and FastAPI backends, Next.js dashboards, Scrapy crawlers and RAG chatbots, for an e-commerce company, a fellowship and an internship, and for my own products. At Honest Forwarder, faster APIs and automated product feeds helped lift sales by 32%.</p>
+            <p>Right now I'm most excited about practical AI: assistants grounded in real documents, and recommendations that actually help people find the right thing.</p>
+          </div>
+          <dl class="facts reveal">
+            <div><dt><svg><use href="#i-globe"/></svg>Work mode</dt><dd>Remote · Hybrid</dd></div>
+            <div><dt><svg><use href="#i-clock"/></svg>Time zone</dt><dd>UTC+5:45, overlaps EU &amp; Asia</dd></div>
+            <div><dt><svg><use href="#i-chat"/></svg>Languages</dt><dd>English · Nepali</dd></div>
+            <div><dt><svg><use href="#i-cap"/></svg>Education</dt><dd>BCA, Tribhuvan University (2021–2025)</dd></div>
+          </dl>
+          <ul class="values reveal">
+            <li><svg><use href="#i-check"/></svg><span><b>Clear communication.</b> Written updates, honest timelines, no jargon.</span></li>
+            <li><svg><use href="#i-check"/></svg><span><b>Measured results.</b> Response times, conversions and hours saved, before and after.</span></li>
+            <li><svg><use href="#i-check"/></svg><span><b>Clean handover.</b> Docs, Docker setup and tests so you're never locked in.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">Toolkit</p>
+          <h2 class="sec-title">Technologies I work with</h2>
+        </header>
+        <div class="skill-groups">
+          <div class="skill-group reveal">
+            <h3>Backend</h3>
+            <ul class="skill-icons">
+              <li><img src="asset/icons/python.webp" alt="" width="40" height="40" loading="lazy" />Python</li>
+              <li><img src="asset/icons/django.webp" alt="" width="40" height="40" loading="lazy" />Django</li>
+              <li><img src="asset/icons/drf.webp" alt="" width="40" height="40" loading="lazy" />Django REST</li>
+              <li><span class="tbadge lg">FA</span>FastAPI</li>
+              <li><span class="tbadge lg">Ce</span>Celery</li>
+              <li><img src="asset/icons/php.webp" alt="" width="40" height="40" loading="lazy" />PHP</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Frontend</h3>
+            <ul class="skill-icons">
+              <li><img src="asset/icons/nextjs.webp" alt="" width="40" height="40" loading="lazy" />Next.js</li>
+              <li><img src="asset/icons/react.webp" alt="" width="40" height="40" loading="lazy" />React</li>
+              <li><img src="asset/icons/typescript.webp" alt="" width="40" height="40" loading="lazy" />TypeScript</li>
+              <li><img src="asset/icons/javascript.webp" alt="" width="40" height="40" loading="lazy" />JavaScript</li>
+              <li><span class="tbadge lg">Tw</span>Tailwind CSS</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Data &amp; AI</h3>
+            <ul class="skill-icons">
+              <li><img src="asset/icons/postgresql.webp" alt="" width="40" height="40" loading="lazy" />PostgreSQL</li>
+              <li><img src="asset/icons/mysql.webp" alt="" width="40" height="40" loading="lazy" />MySQL</li>
+              <li><span class="tbadge lg">Rd</span>Redis</li>
+              <li><span class="tbadge lg">Qd</span>Qdrant</li>
+              <li><span class="tbadge lg">Gm</span>Gemini API</li>
+              <li><span class="tbadge lg">Sc</span>Scrapy</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Tools &amp; DevOps</h3>
+            <ul class="skill-icons">
+              <li><img src="asset/icons/docker.webp" alt="" width="40" height="40" loading="lazy" />Docker</li>
+              <li><img src="asset/icons/git.webp" alt="" width="40" height="40" loading="lazy" />Git &amp; GitHub</li>
+              <li><img src="asset/icons/linux.webp" alt="" width="40" height="40" loading="lazy" />Linux</li>
+              <li><img src="asset/icons/postman.webp" alt="" width="40" height="40" loading="lazy" />Postman</li>
+              <li><img src="asset/icons/figma.webp" alt="" width="40" height="40" loading="lazy" />Figma</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="content-section">
-      <div class="section-header">
-        <span class="section-tag">01 / Profile</span>
-        <h2 class="section-title">About Me</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-bio">
-          <p>
-            Python Developer with 2+ years of proven Django development experience, including software fellowships and engineering internships. 
-            Skilled in designing RESTful APIs, database tuning, and backend architectures to deliver high-performance web solutions. 
-            Passionate about exploring modern architectures, React/Next.js UI interfaces, and integrating generative AI tools to build state-of-the-art products.
-          </p>
-          <br>
-          <p>
-            If you're seeking a focused backend engineer or full-stack developer to breathe life into your web platform, 
-            I am here to collaborate and build robust, high-quality systems together. Let's transform your vision into reality!
-          </p>
-        </div>
-
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="wrap exp-grid">
         <div>
-          <h3 class="about-services-title">What I Do</h3>
-          <div class="services-grid">
-            <div class="glass-card service-card">
-              <div class="service-icon-box">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <h4>Web Development</h4>
-              <p>Building responsive, interactive frontend interfaces and web apps using Next.js, React, and TypeScript.</p>
-            </div>
-            <div class="glass-card service-card">
-              <div class="service-icon-box">
-                <i class="fas fa-server"></i>
-              </div>
-              <h4>Backend Engineering</h4>
-              <p>Designing scale-ready microservices, secure RESTful APIs, database structures, and JWT authentication workflows with Django Rest Framework.</p>
-            </div>
-            <div class="glass-card service-card">
-              <div class="service-icon-box">
-                <i class="fas fa-drafting-compass"></i>
-              </div>
-              <h4>UI/UX & Architecture</h4>
-              <p>Creating user-centric interactive designs and component libraries using Figma to ensure clean user journeys.</p>
-            </div>
+          <header class="sec-head reveal">
+            <p class="kicker">Experience</p>
+            <h2 class="sec-title">Where I've worked and studied</h2>
+          </header>
+          <div class="timeline" id="timeline">
+            <span class="timeline-rail" aria-hidden="true"><span id="timelineFill"></span></span>
+            <ol class="jobs">
+              <li class="job reveal">
+                <span class="job-node now" aria-hidden="true"><svg><use href="#i-brief"/></svg></span>
+                <p class="job-date">Sep 2025 – Present <span class="now-pill">Current</span></p>
+                <h3>Software Developer</h3>
+                <p class="job-co">Honest Forwarder Pvt. Ltd. · Full-time</p>
+                <ul>
+                  <li>Helped lift overall sales by <b>32%</b> by redesigning DRF endpoints and removing checkout bottlenecks.</li>
+                  <li>Built Python scrapers and automated Google Merchant Center product feeds that sync daily via cron.</li>
+                  <li>Cut response times on high-traffic listings with indexing and <code>select_related</code> / <code>prefetch_related</code>.</li>
+                </ul>
+                <ul class="job-tags"><li>Django</li><li>DRF</li><li>Laravel</li><li>MySQL</li><li>Python scraping</li></ul>
+              </li>
+              <li class="job reveal">
+                <span class="job-node" aria-hidden="true"><svg><use href="#i-brief"/></svg></span>
+                <p class="job-date">Jun – Aug 2025</p>
+                <h3>Software Development Fellow</h3>
+                <p class="job-co">Cloco Nepal Inc Pvt. Ltd. · Fellowship</p>
+                <ul>
+                  <li>Built secure DRF APIs for bill-splitting, expense-tracking and retail platforms.</li>
+                  <li>Implemented JWT authentication, role-based authorisation and custom CRUD resources.</li>
+                  <li>Created dashboards with Next.js, TypeScript, React Query and shadcn/ui, with Axios interceptors for token refresh.</li>
+                </ul>
+                <ul class="job-tags"><li>DRF</li><li>JWT</li><li>Next.js</li><li>TypeScript</li><li>React Query</li></ul>
+              </li>
+              <li class="job reveal">
+                <span class="job-node" aria-hidden="true"><svg><use href="#i-brief"/></svg></span>
+                <p class="job-date">Nov 2024 – Feb 2025</p>
+                <h3>Django Developer Intern</h3>
+                <p class="job-co">Raijin Tech Pvt. Ltd. · Internship</p>
+                <ul>
+                  <li>Made database queries <b>20%</b> faster across the platform.</li>
+                  <li>Documented APIs in Swagger and Postman; set up Git-based code reviews and build pipelines.</li>
+                </ul>
+                <ul class="job-tags"><li>Django</li><li>PostgreSQL</li><li>Swagger</li><li>Git</li></ul>
+              </li>
+              <li class="job edu reveal">
+                <span class="job-node cap" aria-hidden="true"><svg><use href="#i-cap"/></svg></span>
+                <p class="job-date">2021 – 2025</p>
+                <h3>Bachelor of Computer Application (BCA)</h3>
+                <p class="job-co">Patan Multiple Campus, Tribhuvan University</p>
+                <ul><li>Web architectures, database management and software engineering.</li></ul>
+              </li>
+            </ol>
           </div>
         </div>
 
-        <!-- Continuous Skills Scrolling Marquee -->
-        <div>
-          <h3 class="skills-sec-title">My Toolkit</h3>
-          
-          <div class="marquee-container">
-            <div class="marquee-content">
-              <!-- Item List -->
-              <div class="marquee-card"><img src="asset/python.png" alt="Python"><span>Python</span></div>
-              <div class="marquee-card"><img src="asset/django.jpeg" alt="Django"><span>Django</span></div>
-              <div class="marquee-card"><img src="asset/drf.png" alt="DRF"><span>Django REST</span></div>
-              <div class="marquee-card"><img src="asset/react.jpg" alt="React"><span>React</span></div>
-              <div class="marquee-card"><img src="asset/nextjs.png" alt="Next.js"><span>Next.js</span></div>
-              <div class="marquee-card"><img src="asset/javascript.png" alt="JavaScript"><span>JavaScript</span></div>
-              <div class="marquee-card"><img src="asset/typescript.png" alt="TypeScript"><span>TypeScript</span></div>
-              <div class="marquee-card"><img src="asset/postgresql.png" alt="PostgreSQL"><span>PostgreSQL</span></div>
-              <div class="marquee-card"><img src="asset/mysql.jpg" alt="MySQL"><span>MySQL</span></div>
-              <div class="marquee-card"><img src="asset/git.png" alt="Git"><span>Git/GitHub</span></div>
-              <div class="marquee-card"><img src="asset/docker.png" alt="Docker"><span>Docker</span></div>
-              <div class="marquee-card"><img src="asset/php.png" alt="PHP"><span>PHP</span></div>
-              <div class="marquee-card"><img src="asset/figma.png" alt="Figma"><span>Figma</span></div>
-              <div class="marquee-card"><img src="asset/postman.png" alt="Postman"><span>Postman</span></div>
-              
-              <!-- Repeated Items for Infinite Loop Seamless Transition -->
-              <div class="marquee-card"><img src="asset/python.png" alt="Python"><span>Python</span></div>
-              <div class="marquee-card"><img src="asset/django.jpeg" alt="Django"><span>Django</span></div>
-              <div class="marquee-card"><img src="asset/drf.png" alt="DRF"><span>Django REST</span></div>
-              <div class="marquee-card"><img src="asset/react.jpg" alt="React"><span>React</span></div>
-              <div class="marquee-card"><img src="asset/nextjs.png" alt="Next.js"><span>Next.js</span></div>
-              <div class="marquee-card"><img src="asset/javascript.png" alt="JavaScript"><span>JavaScript</span></div>
-              <div class="marquee-card"><img src="asset/typescript.png" alt="TypeScript"><span>TypeScript</span></div>
-              <div class="marquee-card"><img src="asset/postgresql.png" alt="PostgreSQL"><span>PostgreSQL</span></div>
-              <div class="marquee-card"><img src="asset/mysql.jpg" alt="MySQL"><span>MySQL</span></div>
-              <div class="marquee-card"><img src="asset/git.png" alt="Git"><span>Git/GitHub</span></div>
-              <div class="marquee-card"><img src="asset/docker.png" alt="Docker"><span>Docker</span></div>
-              <div class="marquee-card"><img src="asset/php.png" alt="PHP"><span>PHP</span></div>
-              <div class="marquee-card"><img src="asset/figma.png" alt="Figma"><span>Figma</span></div>
-              <div class="marquee-card"><img src="asset/postman.png" alt="Postman"><span>Postman</span></div>
-            </div>
+        <aside class="exp-side">
+          <div class="certs reveal">
+            <h3>Certifications &amp; awards</h3>
+            <ul>
+              <li><a href="https://imgur.com/a/Arzw3AE" target="_blank" rel="noopener"><span class="cert-ico">★</span><span>Clash of Code Hackathon<small>Winner</small></span><svg><use href="#i-ext"/></svg></a></li>
+              <li><a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_oLmvBe9Yn4PJbgmof_1742225766570_completion_certificate.pdf" target="_blank" rel="noopener"><span class="cert-ico">✓</span><span>AWS Solutions Architect Simulation<small>Forage</small></span><svg><use href="#i-ext"/></svg></a></li>
+              <li><a href="https://www.udemy.com/certificate/UC-64537fe8-37c3-4832-adce-49924003416f/" target="_blank" rel="noopener"><span class="cert-ico">✓</span><span>Django Rest Framework<small>Udemy</small></span><svg><use href="#i-ext"/></svg></a></li>
+              <li><a href="https://www.hackerrank.com/certificates/4721f3e52a79" target="_blank" rel="noopener"><span class="cert-ico">✓</span><span>Python Developer<small>HackerRank</small></span><svg><use href="#i-ext"/></svg></a></li>
+              <li><a href="https://www.udemy.com/certificate/UC-4b52db27-148a-4476-a543-ad921a423075/" target="_blank" rel="noopener"><span class="cert-ico">✓</span><span>Git &amp; GitHub Masterclass<small>Udemy</small></span><svg><use href="#i-ext"/></svg></a></li>
+              <li><a href="https://www.udemy.com/certificate/UC-c921fc60-774e-4e64-b306-3370b53deac2/" target="_blank" rel="noopener"><span class="cert-ico">✓</span><span>HTML, CSS &amp; JavaScript<small>Udemy</small></span><svg><use href="#i-ext"/></svg></a></li>
+            </ul>
           </div>
-        </div>
-
-        <!-- Highlighted Skill Boxes (Different stylized boxes as requested) -->
-        <div>
-          <h3 class="skills-sec-title">Highlighted Competencies</h3>
-          <div class="skills-grid">
-            <div class="skill-card-box">
-              <div class="skill-card-header">
-                <img src="asset/django.jpeg" alt="Python/Django">
-                <h4>Python & Django Backend</h4>
-              </div>
-              <p class="skill-card-desc">Designing robust architectures, database models, optimization, and complex Django ORM systems.</p>
-              <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-percent="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-card-box">
-              <div class="skill-card-header">
-                <img src="asset/drf.png" alt="DRF API">
-                <h4>API Development & Security</h4>
-              </div>
-              <p class="skill-card-desc">Building modular RESTful APIs with Django REST Framework, JWT role-based security, and thorough endpoints documentation.</p>
-              <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-percent="88%"></div>
-              </div>
-            </div>
-
-            <div class="skill-card-box">
-              <div class="skill-card-header">
-                <img src="asset/nextjs.png" alt="Next.js">
-                <h4>Full Stack & UI Workflows</h4>
-              </div>
-              <p class="skill-card-desc">Connecting APIs with Next.js/React frontend frameworks, Axios interceptors, React Query caching, and Tailwind styling.</p>
-              <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-percent="75%"></div>
-              </div>
-            </div>
-
-            <div class="skill-card-box">
-              <div class="skill-card-header">
-                <img src="asset/postgresql.png" alt="PostgreSQL">
-                <h4>Relational Databases</h4>
-              </div>
-              <p class="skill-card-desc">Writing optimized relational query logic, indexes, tuning database calls, and migrations in PostgreSQL and MySQL.</p>
-              <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-percent="82%"></div>
-              </div>
-            </div>
-
-            <div class="skill-card-box">
-              <div class="skill-card-header">
-                <img src="asset/backend.png" alt="System Design">
-                <h4>System Design & Architecture</h4>
-              </div>
-              <p class="skill-card-desc">Designing scalable distributed backends, load layouts, message parsing systems, and caching database patterns.</p>
-              <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-percent="80%"></div>
-              </div>
-            </div>
-
-            <div class="skill-card-box">
-              <div class="skill-card-header">
-                <img src="asset/docker.png" alt="DevOps">
-                <h4>DevOps & CI/CD Pipelines</h4>
-              </div>
-              <p class="skill-card-desc">Managing containerized instances using Docker, AWS deployments, and automated testing deployment pipelines (Vercel, Render).</p>
-              <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-percent="85%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+          <a class="cv-card reveal magnetic" href="asset/CV/SHUBHAM_NIRMAL_CV.pdf" target="_blank" rel="noopener">
+            <span><b>Download my CV</b><small>PDF · 2 pages · updated 2026</small></span>
+            <span class="cv-ico"><svg><use href="#i-down"/></svg></span>
+          </a>
+        </aside>
       </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="content-section">
-      <div class="section-header">
-        <span class="section-tag">02 / Journey</span>
-        <h2 class="section-title">Resume & Experience</h2>
-      </div>
-      <div class="resume-grid">
-        
-        <!-- Experience Timeline -->
-        <div class="timeline">
-          
-          <h3 class="subsection-heading" style="margin-left: 0; margin-bottom: 24px;">Professional Experience</h3>
-          
-          <!-- Honest Forwarder -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-meta">
-                <div>
-                  <h4 class="timeline-role">Software Developer</h4>
-                  <span class="timeline-company">Honest Forwarder PVT. LTD.</span>
-                </div>
-                <span class="timeline-duration">Sep 2025 - Present</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>Contributed to a 32% increase in overall sales by redesigning and optimizing Django REST Framework endpoints to reduce page-load times and eliminate checkout bottlenecks.</li>
-                <li>Engineered Python scripts to scrape competitor product data, automate Google Merchant Center-ready feeds, and schedule daily sync tasks via Cron Jobs.</li>
-                <li>Optimized database queries using indexing and select_related/prefetch_related, cutting API response times for high-traffic endpoints like product listings.</li>
-              </ul>
+    <!-- ============ BLOG ============ -->
+    <section class="section section-alt" id="blog">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="kicker">Blog</p>
+          <h2 class="sec-title">Notes from the work</h2>
+          <p class="sec-sub">Plain-English write-ups on security, backend and AI.</p>
+        </header>
+        <div class="posts">
+          <a class="post reveal spot" href="blog/php2shell-cve-2026-109618-109619.html">
+            <div class="post-art art-php" aria-hidden="true"><span>PHP</span><i>CVSS 9.2</i></div>
+            <div class="post-body">
+              <p class="post-meta"><span class="tag tag-warn">Security</span> 27 Oct 2026 · 7 min read</p>
+              <h3>PHP2Shell: how to fix the critical PHP flaws (CVE-2026-109618 &amp; 109619)</h3>
+              <p>Two remote-code-execution bugs hit every supported PHP branch. What they are, how to check if you're exposed, and exactly how to patch.</p>
+              <span class="text-link">Read article <svg><use href="#i-arrow"/></svg></span>
             </div>
-          </div>
-
-          <!-- Cloco -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-meta">
-                <div>
-                  <h4 class="timeline-role">Software Development Fellow</h4>
-                  <span class="timeline-company">Cloco Nepal Inc PVT. LTD</span>
-                </div>
-                <span class="timeline-duration">Jun 2025 - Aug 2025</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>Designed and built secure Django REST Framework APIs for bill splitting, expense tracking, and retail platforms.</li>
-                <li>Implemented JWT authentication, role-based authorization, and custom CRUD resources.</li>
-                <li>Created custom, reactive frontend dashboards using Next.js, TypeScript, React Query, and Shadcn/ui.</li>
-                <li>Engineered robust Axios interceptor handlers to manage automatic token refresh operations.</li>
-              </ul>
+          </a>
+          <a class="post reveal spot" href="blog/rag-explained.html">
+            <div class="post-art art-rag" aria-hidden="true"><span>RAG</span><i>docs → answers</i></div>
+            <div class="post-body">
+              <p class="post-meta"><span class="tag">AI</span> 14 Oct 2026 · 8 min read</p>
+              <h3>RAG explained: how to build an AI chatbot that knows your business</h3>
+              <p>Why chatbots make things up, how retrieval fixes it, and a small Django + pgvector example you can build on.</p>
+              <span class="text-link">Read article <svg><use href="#i-arrow"/></svg></span>
             </div>
-          </div>
-
-          <!-- Raijin -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-meta">
-                <div>
-                  <h4 class="timeline-role">Django Developer Intern</h4>
-                  <span class="timeline-company">Raijin Tech Pvt Ltd</span>
-                </div>
-                <span class="timeline-duration">Nov 2024 - Feb 2025</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>Collaborated on building and tuning web backends, boosting query response times by 20%.</li>
-                <li>Designed and documented API endpoints with Swagger/Postman for frontend consumption.</li>
-                <li>Optimized relational database queries, schemas, and models.</li>
-                <li>Configured Git-based code reviews and contributed to automated build pipelines.</li>
-              </ul>
-            </div>
-          </div>
-
-          <h3 class="subsection-heading" style="margin-left: 0; margin-top: 32px; margin-bottom: 24px;">Education</h3>
-
-          <!-- Patan Campus -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-meta">
-                <div>
-                  <h4 class="timeline-role">Bachelor of Computer Application (BCA)</h4>
-                  <span class="timeline-company">Patan Multiple Campus, Tribhuvan University</span>
-                </div>
-                <span class="timeline-duration">2021 - Present</span>
-              </div>
-              <ul class="timeline-desc">
-                <li>Focusing on Web Architectures, Database Management, and Software Engineering methodologies.</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Certifications -->
-        <div class="certifications-section">
-          <h3 class="subsection-heading" style="margin-bottom: 24px; text-align: center;">Certifications</h3>
-          <div class="certs-grid">
-            <a href="https://www.udemy.com/certificate/UC-64537fe8-37c3-4832-adce-49924003416f/" class="cert-card" target="_blank">
-              <div class="cert-info">
-                <i class="fab fa-python cert-icon"></i>
-                <span class="cert-title">Django Rest Framework (Udemy)</span>
-              </div>
-              <i class="fas fa-external-link-alt cert-arrow"></i>
-            </a>
-            <a href="https://www.udemy.com/certificate/UC-4b52db27-148a-4476-a543-ad921a423075/" class="cert-card" target="_blank">
-              <div class="cert-info">
-                <i class="fab fa-git-alt cert-icon"></i>
-                <span class="cert-title">Git and GitHub Masterclass (Udemy)</span>
-              </div>
-              <i class="fas fa-external-link-alt cert-arrow"></i>
-            </a>
-            <a href="https://www.hackerrank.com/certificates/4721f3e52a79" class="cert-card" target="_blank">
-              <div class="cert-info">
-                <i class="fab fa-python cert-icon"></i>
-                <span class="cert-title">Python Developer (HackerRank)</span>
-              </div>
-              <i class="fas fa-external-link-alt cert-arrow"></i>
-            </a>
-            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_oLmvBe9Yn4PJbgmof_1742225766570_completion_certificate.pdf" class="cert-card" target="_blank">
-              <div class="cert-info">
-                <i class="fab fa-aws cert-icon"></i>
-                <span class="cert-title">AWS Solution Architect Simulation (Forage)</span>
-              </div>
-              <i class="fas fa-external-link-alt cert-arrow"></i>
-            </a>
-            <a href="https://imgur.com/a/Arzw3AE" class="cert-card" target="_blank">
-              <div class="cert-info">
-                <i class="fas fa-code cert-icon"></i>
-                <span class="cert-title">Clash of Code Hackathon Winner</span>
-              </div>
-              <i class="fas fa-external-link-alt cert-arrow"></i>
-            </a>
-            <a href="https://www.udemy.com/certificate/UC-c921fc60-774e-4e64-b306-3370b53deac2/" class="cert-card" target="_blank">
-              <div class="cert-info">
-                <i class="fab fa-html5 cert-icon"></i>
-                <span class="cert-title">HTML, CSS & JavaScript Course (Udemy)</span>
-              </div>
-              <i class="fas fa-external-link-alt cert-arrow"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="resume-download-btn">
-          <a href="asset/CV/SHUBHAM-CV.pdf" download class="btn btn-primary">
-            Download Full CV <i class="fas fa-download"></i>
           </a>
         </div>
-
       </div>
     </section>
 
-    <!-- Projects Section (Row List Inspired by Kaushal's) -->
-    <section id="projects" class="content-section">
-      <div class="section-header">
-        <span class="section-tag">03 / Works</span>
-        <h2 class="section-title">Selected Projects</h2>
-      </div>
-      
-      <div class="projects-list">
-        
-        <!-- Project 1: MakeCV – AI-Powered CV & Resume Builder -->
-        <a href="https://www.makecv.online/" class="project-row" data-project-index="0" target="_blank">
-          <span class="project-index">01</span>
-          <div class="project-info-side">
-            <h3 class="project-row-title">MakeCV Resume Builder</h3>
-            <div class="project-row-badges">
-              <span class="project-row-badge">Next.js</span>
-              <span class="project-row-badge">Django DRF</span>
-              <span class="project-row-badge">Generative AI</span>
-            </div>
-          </div>
-          <p class="project-row-desc">
-            An AI-driven resume builder targeting the Indian job market, generating ATS-optimised CVs in under 5 minutes with real-time PDF previews.
-          </p>
-          <div class="project-row-link">
-            <span>View Details</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </a>
-
-        <!-- Project 2: Thunder: Kanban Boards -->
-        <a href="https://thunder-kanban.vercel.app/" class="project-row" data-project-index="1" target="_blank">
-          <span class="project-index">02</span>
-          <div class="project-info-side">
-            <h3 class="project-row-title">Thunder Kanban</h3>
-            <div class="project-row-badges">
-              <span class="project-row-badge">React</span>
-              <span class="project-row-badge">TypeScript</span>
-              <span class="project-row-badge">PostgreSQL</span>
-            </div>
-          </div>
-          <p class="project-row-desc">
-            A full-stack Kanban board featuring drag-and-drop workflows, token rotation, local caching, and OpenAPI docs.
-          </p>
-          <div class="project-row-link">
-            <span>View Details</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </a>
-
-        <!-- Project 3: UpStart SAT Platform -->
-        <a href="https://github.com/SHUBHAM-NIRMAL18" class="project-row" data-project-index="2" target="_blank">
-          <span class="project-index">03</span>
-          <div class="project-info-side">
-            <h3 class="project-row-title">UpStart SAT Platform</h3>
-            <div class="project-row-badges">
-              <span class="project-row-badge">Django</span>
-              <span class="project-row-badge">PostgreSQL</span>
-              <span class="project-row-badge">Web Application</span>
-            </div>
-          </div>
-          <p class="project-row-desc">
-            A timed mock test platform built with Django for SAT preparation, featuring performance metrics, randomized query question pools, and database optimizations.
-          </p>
-          <div class="project-row-link">
-            <span>View Details</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </a>
-
-        <!-- Project 4: Medlife Online Pharmacy -->
-        <a href="https://github.com/SHUBHAM-NIRMAL18/-MEDLIFE-Online_Pharmacy_System" class="project-row" data-project-index="3" target="_blank">
-          <span class="project-index">04</span>
-          <div class="project-info-side">
-            <h3 class="project-row-title">Medlife Online Pharmacy</h3>
-            <div class="project-row-badges">
-              <span class="project-row-badge">Django</span>
-              <span class="project-row-badge">E-Commerce</span>
-              <span class="project-row-badge">MySQL</span>
-            </div>
-          </div>
-          <p class="project-row-desc">
-            A comprehensive web store for pharmacy products featuring dynamic searching, shopping cart actions, secure checkout checkout processes, and a rich admin backend.
-          </p>
-          <div class="project-row-link">
-            <span>View Details</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </a>
-
-        <!-- Project 5: Crop Prediction Portal -->
-        <a href="https://github.com/SHUBHAM-NIRMAL18/crop-prediction" class="project-row" data-project-index="4" target="_blank">
-          <span class="project-index">05</span>
-          <div class="project-info-side">
-            <h3 class="project-row-title">Crop Prediction Portal</h3>
-            <div class="project-row-badges">
-              <span class="project-row-badge">Django ORM</span>
-              <span class="project-row-badge">MySQL</span>
-              <span class="project-row-badge">Agricultural Tech</span>
-            </div>
-          </div>
-          <p class="project-row-desc">
-            Predictive website analyzing soil variables (N, P, K, pH, rainfall) to suggest optimal crops, utilizing optimized Django DB queries.
-          </p>
-          <div class="project-row-link">
-            <span>View Details</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </a>
-
-      </div>
-
-      <div class="glass-card github-cta">
-        <div class="github-cta-text">
-          <i class="fab fa-github"></i>
-          <div>
-            <h4 style="font-family: var(--font-heading); font-size: 1.25rem;">Looking for more code?</h4>
-            <p>I maintain multiple open-source repositories covering database query tuning, backend authentication, and REST APIs.</p>
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <header class="sec-head reveal">
+            <p class="kicker">Contact</p>
+            <h2 class="sec-title">Have a project in mind? Let's talk.</h2>
+            <p class="sec-sub">Tell me what you're building, what's slowing you down, or where you want your career to go. I reply within a day.</p>
+          </header>
+          <ul class="contact-list reveal">
+            <li><span class="ci"><svg><use href="#i-mail"/></svg></span><a href="mailto:suvamniraml456@gmail.com">suvamniraml456@gmail.com</a><button class="icon-btn sm" type="button" id="copyEmail" aria-label="Copy email address"><svg><use href="#i-copy"/></svg></button></li>
+            <li><span class="ci"><svg><use href="#i-phone"/></svg></span><a href="tel:+9779821287731">+977 982-128-7731</a></li>
+            <li><span class="ci"><svg><use href="#i-globe"/></svg></span><span>Remote &amp; hybrid · based in Lalitpur, Nepal</span></li>
+          </ul>
+          <div class="socials reveal">
+            <a href="https://github.com/SHUBHAM-NIRMAL18" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/shubham-nirmal-3167671b9/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+            <a href="https://x.com/shubhamnirmal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg><use href="#i-x"/></svg></a>
           </div>
         </div>
-        <a href="https://github.com/SHUBHAM-NIRMAL18" target="_blank" class="btn btn-secondary">Visit GitHub</a>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="form-2">
+            <div class="form-row">
+              <label for="cfName">Your name</label>
+              <input id="cfName" name="name" type="text" required autocomplete="name" placeholder="Jane Doe" />
+            </div>
+            <div class="form-row">
+              <label for="cfEmail">Email</label>
+              <input id="cfEmail" name="email" type="email" required autocomplete="email" placeholder="jane@company.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="cfTopic">I'm interested in</label>
+            <select id="cfTopic" name="topic">
+              <option>Web development</option>
+              <option>AI integration</option>
+              <option>Backend &amp; API development</option>
+              <option>Workflow automation</option>
+              <option>Web scraping &amp; data feeds</option>
+              <option>1:1 IT career session</option>
+              <option>Full-time / contract role</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cfMessage">Message</label>
+            <textarea id="cfMessage" name="message" rows="5" required placeholder="A few lines about your project, role or question"></textarea>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-primary magnetic">Send message <svg><use href="#i-send"/></svg></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="content-section">
-      <div class="section-header">
-        <span class="section-tag">04 / Connectivity</span>
-        <h2 class="section-title">Get In Touch</h2>
-      </div>
-      
-      <div class="contact-container">
-        <div class="glass-card">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <input type="text" id="name" name="name" required class="form-input" placeholder=" " />
-              <label for="name" class="form-label">Full Name</label>
-            </div>
-
-            <div class="form-group">
-              <input type="email" id="email" name="email" required class="form-input" placeholder=" " />
-              <label for="email" class="form-label">Email Address</label>
-            </div>
-
-            <div class="form-group">
-              <input type="text" id="subject" name="subject" required class="form-input" placeholder=" " />
-              <label for="subject" class="form-label">Subject</label>
-            </div>
-
-            <div class="form-group">
-              <textarea id="message" name="message" required class="form-input" placeholder=" "></textarea>
-              <label for="message" class="form-label">Your Message</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 14px 36px;">
-              Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ===== Project Details Modal Overlay ===== -->
-  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog">
-    <div class="project-modal-content">
-      <button class="project-modal-close" id="projectModalClose" aria-label="Close details">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="project-modal-body" id="projectModalBody">
-        <!-- Dynamic Content Populated via JavaScript -->
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-cta">
+        <p>Building something? I'm taking on new projects for <b>2026–27</b>.</p>
+        <a class="btn btn-primary" href="#contact">Start a conversation <svg><use href="#i-arrow"/></svg></a>
       </div>
-    </div>
-  </div>
-
-  <!-- ===== Floating AI Chatbot Widget (Housings the AI Avatar) ===== -->
-  <div class="chatbot-widget" id="chatbotWidget">
-    <button class="chatbot-toggle-btn" id="chatbotToggle" title="Talk to Shubham's AI Avatar">
-      <img src="asset/avatar.png" alt="Shubham AI Avatar">
-      <span class="chatbot-status-dot"></span>
-    </button>
-    
-    <div class="chatbot-window" id="chatbotWindow">
-      <!-- Header -->
-      <div class="chatbot-header">
-        <div class="chatbot-header-info">
-          <img src="asset/avatar.png" alt="Shubham AI Avatar">
-          <div class="chatbot-header-title">
-            <h4>Shubham (AI Avatar)</h4>
-            <span>Online</span>
-          </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#top" class="brand"><span class="brand-mark">SN</span><span class="brand-name">Shubham Nirmal</span></a>
+          <p>Software engineer in Lalitpur, Nepal. Frontend, backend, AI integration and automation for teams worldwide.</p>
+          <p class="avail"><span class="status-dot"></span> Available · Remote &amp; Hybrid</p>
         </div>
-        <button class="chatbot-close-btn" id="chatbotClose" aria-label="Close Chat">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      
-      <!-- Message Log -->
-      <div class="chatbot-messages" id="chatbotMessages">
-        <div class="chat-bubble bot">
-          Hey there! I am Shubham's interactive AI avatar. Ask me anything about his skills, experience, projects, or how to reach out to him!
+        <nav class="footer-col" aria-label="Site">
+          <h4>Site</h4>
+          <a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#blog">Blog</a>
+        </nav>
+        <nav class="footer-col" aria-label="Services">
+          <h4>Services</h4>
+          <a href="#services">Web development</a><a href="#services">AI integration</a><a href="#services">Backend &amp; APIs</a><a href="#services">Automation</a><a href="#services">Career advice</a>
+        </nav>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:suvamniraml456@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/shubham-nirmal-3167671b9/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/SHUBHAM-NIRMAL18" target="_blank" rel="noopener">GitHub</a>
+          <a href="asset/CV/SHUBHAM_NIRMAL_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
         </div>
       </div>
-      
-      <!-- Quick Action Chips -->
-      <div class="chatbot-chips">
-        <button class="chat-chip" data-question="What are your core skills?">Skills</button>
-        <button class="chat-chip" data-question="Tell me about your projects.">Projects</button>
-        <button class="chat-chip" data-question="Show your work experience.">Experience</button>
-        <button class="chat-chip" data-question="How can I contact you?">Contact</button>
-      </div>
-      
-      <!-- Input Bar -->
-      <div class="chatbot-input-bar">
-        <input type="text" id="chatInput" placeholder="Ask a question..." aria-label="Ask a question">
-        <button class="chatbot-send-btn" id="chatSendBtn" aria-label="Send Message">
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Footer Section ===== -->
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-socials">
-        <a href="https://github.com/SHUBHAM-NIRMAL18" class="social-link" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/shubham-nirmal-3167671b9/" class="social-link" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://x.com/shubhamnirmal" class="social-link" target="_blank" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>
-      <div class="footer-text">
-        &copy; <span id="year">2026</span> Shubham Nirmal
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Shubham Nirmal. All rights reserved.</span>
+        <span class="visitors" id="visitors" title="Unique visits counted once per browser session">
+          <svg><use href="#i-eye"/></svg> You are visitor <b class="odometer" id="visitorCount">#…</b>
+        </span>
+        <span class="footer-meta"><span class="np-time">--:--</span> in Lalitpur · <button class="replay" id="replayIntro" type="button">Replay intro</button></span>
       </div>
     </div>
   </footer>
 
-  <!-- ===== Interactive Scripts ===== -->
-  <script>
-    // 1. Preloader handling & Scroll-based Skill fills
-    window.addEventListener('DOMContentLoaded', () => {
-      // Set active year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- ============ Project modal ============ -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-card">
+      <button class="icon-btn modal-close" id="modalClose" type="button" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
-      // Enforce preloader minimum duration (1.5s) for a premium intro feel
-      setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('fade-out');
-        document.body.classList.remove('loading-active');
-      }, 1500);
+  <!-- ============ Chatbot (AI avatar, same icon) ============ -->
+  <div class="chatbot" id="chatbot">
+    <button class="chat-toggle" id="chatToggle" type="button" aria-label="Chat with Shubham's AI avatar" aria-expanded="false" title="Talk to Shubham's AI avatar">
+      <img src="asset/img/avatar-192.webp" alt="" width="60" height="60" />
+      <span class="chat-online"></span>
+    </button>
+    <div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat with Shubham's AI avatar" hidden>
+      <div class="chat-head">
+        <img src="asset/img/avatar-96.webp" alt="" width="40" height="40" />
+        <div><b>Shubham (AI Avatar)</b><small><span class="status-dot"></span> Online</small></div>
+        <button class="icon-btn sm" id="chatClose" type="button" aria-label="Close chat"><svg><use href="#i-close"/></svg></button>
+      </div>
+      <div class="chat-log" id="chatLog" aria-live="polite">
+        <div class="bubble bot">Hey there! I'm Shubham's AI avatar. Ask me about his services, projects, experience, or how to get in touch.</div>
+      </div>
+      <div class="chat-chips">
+        <button type="button" data-q="What services do you offer?">Services</button>
+        <button type="button" data-q="Tell me about your projects.">Projects</button>
+        <button type="button" data-q="Do you work remote or hybrid?">Remote / Hybrid</button>
+        <button type="button" data-q="How can I contact you?">Contact</button>
+      </div>
+      <form class="chat-input" id="chatForm">
+        <label class="sr-only" for="chatInput">Ask a question</label>
+        <input id="chatInput" type="text" autocomplete="off" placeholder="Ask a question…" />
+        <button type="submit" aria-label="Send"><svg><use href="#i-send"/></svg></button>
+      </form>
+    </div>
+  </div>
 
-      // Start typewriter animation after preloader ends
-      setTimeout(startTypewriter, 1800);
-      
-      // Hook scroll listener to fill skills bars when scrolled into view
-      window.addEventListener('scroll', fillSkillBars);
-      fillSkillBars(); // initial check
-    });
-
-    function fillSkillBars() {
-      const skillsSection = document.getElementById('about');
-      const rect = skillsSection.getBoundingClientRect();
-      const isVisible = (rect.top <= window.innerHeight - 100);
-
-      if (isVisible) {
-        document.querySelectorAll('.skill-bar-fill').forEach(bar => {
-          const targetPercent = bar.getAttribute('data-percent');
-          bar.style.width = targetPercent;
-        });
-      }
-    }
-
-    // 2. Vibe Selector dropdown toggle
-    const vibeBtn = document.getElementById('vibeBtn');
-    const vibeDropdown = document.getElementById('vibeDropdown');
-    const activeVibeNameElement = document.getElementById('active-vibe-name');
-
-    // Load active vibe from local storage or set default 'emerald'
-    const currentVibe = localStorage.getItem('shubham-portfolio-vibe') || 'emerald';
-    setVibe(currentVibe);
-
-    vibeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      vibeDropdown.classList.toggle('show');
-    });
-
-    // Click outside dropdown closes it
-    document.addEventListener('click', () => {
-      vibeDropdown.classList.remove('show');
-    });
-
-    // Add click events to vibe choices
-    document.querySelectorAll('.vibe-option').forEach(option => {
-      option.addEventListener('click', function() {
-        const vibeVal = this.getAttribute('data-vibe-val');
-        setVibe(vibeVal);
-        
-        // Highlight active button in list
-        document.querySelectorAll('.vibe-option').forEach(o => o.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    function setVibe(vibe) {
-      document.body.setAttribute('data-vibe', vibe);
-      localStorage.setItem('shubham-portfolio-vibe', vibe);
-      
-      // Update displayed name in the picker button
-      const vibeNames = {
-        emerald: 'Emerald',
-        cyberpunk: 'Cyberpunk',
-        sunset: 'Sunset',
-        noir: 'Stark Noir'
-      };
-      activeVibeNameElement.textContent = vibeNames[vibe] || 'Emerald';
-    }
-
-    // 3. Mobile Navigation Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    mobileMenuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = mobileMenuToggle.querySelector('i');
-      if (navLinks.classList.contains('active')) {
-        icon.className = 'fas fa-times';
-      } else {
-        icon.className = 'fas fa-bars';
-      }
-    });
-
-    // Close menu when links are clicked on mobile
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
-      });
-    });
-
-    // 4. Typewriter Animation for Hero Section
-    const words = ["Python Developer.", "Backend Engineer.", "Full Stack Developer.", "AI Explorer."];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typewriterElement = document.getElementById('typewriter-text');
-    let typingSpeed = 100;
-
-    function startTypewriter() {
-      const currentWord = words[wordIndex];
-      
-      if (isDeleting) {
-        // Deleting characters
-        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
-      } else {
-        // Typing characters
-        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 100;
-      }
-
-      if (!isDeleting && charIndex === currentWord.length) {
-        // Pause at completion before deleting
-        typingSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typingSpeed = 500;
-      }
-
-      setTimeout(startTypewriter, typingSpeed);
-    }
-
-    // 5. Scroll Spy (Highlighting active link in navbar on scroll)
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const scrollY = window.pageYOffset;
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href').substring(1) === current) {
-          item.classList.add('active');
-        }
-      });
-    });
-
-    // 6. Contact Form email integration via mailto
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-
-      const bodyText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      const mailtoLink = `mailto:suvamniraml456@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-
-      // Open user's default email client
-      window.location.href = mailtoLink;
-
-      alert('Thank you, ' + name + '! Your mail client will now open with your message details.');
-      contactForm.reset();
-    });
-
-    // 7. Interactive AI Avatar Chatbot Functionality
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotWindow = document.getElementById('chatbotWindow');
-    const chatbotClose = document.getElementById('chatbotClose');
-    const chatbotMessages = document.getElementById('chatbotMessages');
-    const chatInput = document.getElementById('chatInput');
-    const chatSendBtn = document.getElementById('chatSendBtn');
-
-    // Toggle chatbot window open/close
-    chatbotToggle.addEventListener('click', () => {
-      chatbotWindow.classList.toggle('open');
-      // Scroll to bottom when opening
-      if (chatbotWindow.classList.contains('open')) {
-        setTimeout(() => {
-          chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }, 100);
-      }
-    });
-
-    chatbotClose.addEventListener('click', () => {
-      chatbotWindow.classList.remove('open');
-    });
-
-    // Add chips action
-    document.querySelectorAll('.chat-chip').forEach(chip => {
-      chip.addEventListener('click', function() {
-        const questionText = this.getAttribute('data-question');
-        sendUserMessage(questionText);
-      });
-    });
-
-    // Send input message
-    chatSendBtn.addEventListener('click', () => {
-      const msg = chatInput.value.trim();
-      if (msg) {
-        sendUserMessage(msg);
-        chatInput.value = '';
-      }
-    });
-
-    chatInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        const msg = chatInput.value.trim();
-        if (msg) {
-          sendUserMessage(msg);
-          chatInput.value = '';
-        }
-      }
-    });
-
-    function sendUserMessage(text) {
-      // Create user message bubble
-      const userBubble = document.createElement('div');
-      userBubble.className = 'chat-bubble user';
-      userBubble.textContent = text;
-      chatbotMessages.appendChild(userBubble);
-      
-      // Scroll to bottom
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      
-      // Simulate typing indicator and response
-      simulateBotResponse(text);
-    }
-
-    function simulateBotResponse(userMsg) {
-      const typingBubble = document.createElement('div');
-      typingBubble.className = 'chat-bubble bot';
-      typingBubble.innerHTML = '<i class="fas fa-ellipsis-h fa-pulse"></i>';
-      chatbotMessages.appendChild(typingBubble);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-      // Select response based on keywords
-      const query = userMsg.toLowerCase();
-      let reply = "";
-
-      if (query.includes('skill') || query.includes('tech') || query.includes('toolkit')) {
-        reply = "I specialize in backend development with Python, Django, and Django REST Framework. I also work with Next.js, React, JavaScript, and TypeScript on the frontend, and handle PostgreSQL, MySQL, Docker, and Git.";
-      } else if (query.includes('project') || query.includes('work') || query.includes('portfolio')) {
-        reply = "Some of my featured projects are:\n1. MakeCV Resume Builder (AI-Powered CV Builder)\n2. Thunder Kanban (Kanban Board App)\n3. UpStart SAT Platform (Django + PostgreSQL Mock Tests)\n4. Medlife Online Pharmacy (Django + MySQL E-commerce)\n5. Crop Prediction Portal (Agricultural analysis system)\nExplore their details and interactive reviews in the 'Projects' section!";
-      } else if (query.includes('experience') || query.includes('job') || query.includes('fellowship') || query.includes('intern')) {
-        reply = "My professional experience includes:\n1. Software Developer at Honest Forwarder PVT. LTD. (Sep 2025 - Present) optimizing Django REST Framework APIs, building web scrapers, and database query tuning.\n2. Software Development Fellow at Cloco Nepal Inc (Jun - Aug 2025) building Next.js clients and DRF APIs.\n3. Django Developer Intern at Raijin Tech Pvt Ltd (Nov 2024 - Feb 2025) optimizing database queries and REST APIs.";
-      } else if (query.includes('contact') || query.includes('reach') || query.includes('email') || query.includes('phone') || query.includes('hire')) {
-        reply = "You can contact me at suvamniraml456@gmail.com or call me at +977-9821287731. I am based in Lalitpur, Nepal, and I'd love to collaborate on your next venture!";
-      } else if (query.includes('hi') || query.includes('hello') || query.includes('hey')) {
-        reply = "Hello! Thanks for visiting my portfolio. How can I help you learn more about my skills, projects, or professional journey today?";
-      } else {
-        reply = "I'm Shubham's AI assistant. Feel free to ask about my core skills, professional experience, projects, or contact details!";
-      }
-
-      // Replace typing bubble with actual message after a natural delay
-      setTimeout(() => {
-        typingBubble.textContent = reply;
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }, 750);
-    }
-
-    // 8. Project Details Modal Logic
-    const projectsData = [
-      {
-        title: "MakeCV – AI-Powered CV & Resume Builder",
-        index: "01",
-        badges: ["Django REST Framework", "Next.js", "OpenAPI/Swagger", "JWT Auth", "Generative AI"],
-        desc: "A full-stack application targeting the Indian job market that leverages an intelligent AI layer to generate ATS-optimized, role-specific resume content, reducing creation time from hours to under 5 minutes.",
-        longDesc: "MakeCV is a comprehensive platform engineered to simplify resume creation. It features a multi-step form wizard for profile building, real-time print-ready PDF preview rendering, and a robust backend. Integrated JWT authentication handles secure logins with automated token refresh operations.",
-        bullets: [
-          "Engineered an AI-driven, full-stack CV builder using Django REST Framework and Next.js, reducing user content creation time from hours to under 5 minutes via an intelligent generative AI layer.",
-          "Designed a responsive, multi-step profile builder wizard coupled with a real-time preview renderer for instant, print-ready, and ATS-optimized PDF generation.",
-          "Implemented secure JWT authentication with automated token refresh flows and documented backend APIs using OpenAPI/Swagger schemas."
-        ],
-        image: "asset/Project/make_cv.svg",
-        liveLink: "https://www.makecv.online/",
-        codeLink: "https://api.makecv.online/api/v1/docs",
-        codeLabel: "API Docs"
-      },
-      {
-        title: "Thunder: Kanban Boards",
-        index: "02",
-        badges: ["React", "TypeScript", "Django REST", "PostgreSQL", "Tailwind CSS"],
-        desc: "A full-stack Kanban board application featuring drag-and-drop task workflows, secure token rotation, and robust query validation, deployed fully on Vercel and Render.",
-        longDesc: "Thunder is a project management tool offering seamless productivity tracking. It supports full CRUD operations on boards, columns, and tasks, alongside priority tags, task duplication constraints, and local caching for optimized state retrieval.",
-        bullets: [
-          "Developed a full-stack Kanban board application with React, TypeScript, and Django REST Framework, utilizing PostgreSQL for scalable data persistence.",
-          "Implemented drag-and-drop task workflow management with full CRUD capabilities, custom priority levels, and task duplication constraints.",
-          "Optimized performance by introducing LocalStorage state caching, React Hook Form with Zod validation, and responsive mobile-first Tailwind CSS interfaces.",
-          "Deployed frontend to Vercel and backend to Render, leveraging drf-spectacular to auto-generate OpenAPI/Swagger API documentation."
-        ],
-        image: "",
-        liveLink: "https://thunder-kanban.vercel.app/",
-        codeLink: "https://github.com/SHUBHAM-NIRMAL18",
-        codeLabel: "GitHub"
-      },
-      {
-        title: "UpStart SAT Platform",
-        index: "03",
-        badges: ["Django", "PostgreSQL", "Web Application"],
-        desc: "A timed mock test platform built with Django for SAT preparation, featuring performance metrics, randomized query question pools, and database optimizations.",
-        longDesc: "UpStart SAT provides a high-fidelity mock testing environment mimicking actual SAT formats. Features include detailed telemetry, randomized query selection, custom test timers, and indexing strategies that reduced query overhead during testing sessions.",
-        bullets: [
-          "Designed and deployed a Django-based mock examination platform utilizing PostgreSQL to run simulated, timed SAT preparation tests.",
-          "Developed custom test telemetry and scoring engines to provide instant, detailed feedback on section-wise student performance.",
-          "Optimized database lookup queries and question-pooling logic to ensure low latency and high availability under heavy test loads."
-        ],
-        image: "",
-        liveLink: "https://github.com/SHUBHAM-NIRMAL18",
-        codeLink: "https://github.com/SHUBHAM-NIRMAL18",
-        codeLabel: "GitHub"
-      },
-      {
-        title: "Medlife Online Pharmacy",
-        index: "04",
-        badges: ["Django", "E-Commerce", "MySQL"],
-        desc: "A comprehensive web store for pharmacy products featuring dynamic searching, shopping cart actions, secure checkout checkout processes, and a rich admin backend.",
-        longDesc: "Medlife provides end-to-end pharmacy operations online. Users can search catalog items dynamically, manage a persistent shopping cart, and complete orders through a simulated checkout gateway, all monitored by a secure admin dashboard.",
-        bullets: [
-          "Built a full-featured e-commerce platform using Django and MySQL, facilitating prescription uploads and online pharmaceutical sales.",
-          "Created a fast, dynamic search filter system for inventory lookup using Django ORM and front-end AJAX requests.",
-          "Structured a secure checkout flow with shopping cart state management, order validation, and comprehensive administrator reports."
-        ],
-        image: "asset/Project/Medlife.png",
-        liveLink: "https://github.com/SHUBHAM-NIRMAL18/-MEDLIFE-Online_Pharmacy_System",
-        codeLink: "https://github.com/SHUBHAM-NIRMAL18/-MEDLIFE-Online_Pharmacy_System",
-        codeLabel: "GitHub"
-      },
-      {
-        title: "Crop Prediction Portal",
-        index: "05",
-        badges: ["Django ORM", "MySQL", "Agricultural Tech"],
-        desc: "Predictive website analyzing soil variables (N, P, K, pH, rainfall) to suggest optimal crops, utilizing optimized Django DB queries.",
-        longDesc: "Crop Prediction Portal uses basic agricultural variables to provide crop suggestions. It is designed to assist farmers in choosing the best crops for their soil parameters, leveraging optimized Django ORM lookup queries.",
-        bullets: [
-          "Developed a data-driven web tool mapping agricultural soil indicators to optimal crop recommendations.",
-          "Integrated machine learning regression schemas with the Django backend for real-time agricultural telemetry inputs.",
-          "Designed optimized indexing layouts on MySQL tables, ensuring fast responses for soil analysis inquiries."
-        ],
-        image: "asset/Project/crop.png",
-        liveLink: "https://github.com/SHUBHAM-NIRMAL18/crop-prediction",
-        codeLink: "https://github.com/SHUBHAM-NIRMAL18/crop-prediction",
-        codeLabel: "GitHub"
-      }
-    ];
-
-    const projectModal = document.getElementById('projectModal');
-    const projectModalClose = document.getElementById('projectModalClose');
-    const projectModalBody = document.getElementById('projectModalBody');
-
-    // Click handler for project rows
-    document.querySelectorAll('.project-row').forEach(row => {
-      row.addEventListener('click', function(e) {
-        // Prevent default navigation to allow opening the modal
-        e.preventDefault();
-        const index = parseInt(this.getAttribute('data-project-index'), 10);
-        if (!isNaN(index) && projectsData[index]) {
-          openProjectModal(projectsData[index]);
-        }
-      });
-    });
-
-    function openProjectModal(project) {
-      const hasImage = project.image && project.image.trim() !== "";
-      
-      let badgesHTML = project.badges.map(badge => `<span class="project-modal-badge">${badge}</span>`).join('');
-      let bulletsHTML = project.bullets.map(bullet => `<li>${bullet}</li>`).join('');
-      
-      let bodyHTML = '';
-      
-      if (hasImage) {
-        bodyHTML += `
-          <div class="project-modal-image-panel">
-            <img src="${project.image}" alt="${project.title}">
-          </div>
-        `;
-      }
-      
-      bodyHTML += `
-        <div class="project-modal-info-panel">
-          <div class="project-modal-header">
-            <span class="project-modal-index">${project.index} / Project</span>
-            <h3 class="project-modal-title">${project.title}</h3>
-            <div class="project-modal-badges">
-              ${badgesHTML}
-            </div>
-          </div>
-          
-          <div>
-            <h4 class="project-modal-desc-heading">Overview</h4>
-            <p class="project-modal-desc">${project.longDesc || project.desc}</p>
-          </div>
-          
-          <div>
-            <h4 class="project-modal-desc-heading">Key Achievements & Architecture</h4>
-            <ul class="project-modal-bullets">
-              ${bulletsHTML}
-            </ul>
-          </div>
-          
-          <div class="project-modal-actions">
-            <a href="${project.liveLink}" target="_blank" class="btn btn-primary">
-              Visit Live Site <i class="fas fa-external-link-alt"></i>
-            </a>
-            <a href="${project.codeLink}" target="_blank" class="btn btn-secondary">
-              ${project.codeLabel} <i class="${project.codeLabel === 'API Docs' ? 'fas fa-book' : 'fab fa-github'}"></i>
-            </a>
-          </div>
-        </div>
-      `;
-      
-      projectModalBody.innerHTML = bodyHTML;
-      
-      // Update modal layout classes depending on image presence
-      if (hasImage) {
-        projectModalBody.className = "project-modal-body";
-      } else {
-        projectModalBody.className = "project-modal-body no-image";
-      }
-      
-      // Open modal
-      projectModal.classList.add('open');
-      projectModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Disable page scrolling
-    }
-
-    function closeProjectModal() {
-      projectModal.classList.remove('open');
-      projectModal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = ''; // Enable page scrolling
-    }
-
-    projectModalClose.addEventListener('click', closeProjectModal);
-
-    // Close when clicking overlay background (outside content card)
-    projectModal.addEventListener('click', function(e) {
-      if (e.target === projectModal) {
-        closeProjectModal();
-      }
-    });
-
-    // Close on Escape key press
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && projectModal.classList.contains('open')) {
-        closeProjectModal();
-      }
-    });
-  </script>
+  <script src="js/intro3d.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
