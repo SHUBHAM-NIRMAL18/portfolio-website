@@ -859,3 +859,49 @@ html.js:not(.booted) .hero-copy > *, html.js:not(.booted) .console { animation: 
 .work-head > * { min-width: 0; max-width: 100%; }
 @media (max-width: 680px) { .filters { scrollbar-width: none; } .filters::-webkit-scrollbar { display: none; } }
 #about { overflow-x: clip; }
+
+/* ==========================================================================
+   v5: gradient-mesh background + grain, Play game link + modal, smaller chat
+   ========================================================================== */
+:root { --m1: #f7b267; --m2: #f4845f; --m3: #f2d0a4; --m4: #e9c46a; --mesh-o: .55; --grain-o: .06; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --m1: #b45309; --m2: #9a3412; --m3: #6b3a1e; --m4: #5b2a4a; --mesh-o: .45; --grain-o: .08; } }
+:root[data-theme="dark"] { --m1: #b45309; --m2: #9a3412; --m3: #6b3a1e; --m4: #5b2a4a; --mesh-o: .45; --grain-o: .08; }
+
+/* hero: soft drifting colour blobs instead of the dot grid */
+.hero-grid-bg.mesh { background: none; mask-image: none; -webkit-mask-image: none; overflow: hidden; }
+.hero-grid-bg.mesh i {
+  position: absolute; display: block; border-radius: 50%; filter: blur(70px); opacity: var(--mesh-o);
+  will-change: transform; animation: mesh-drift 22s ease-in-out infinite alternate;
+}
+.hero-grid-bg.mesh .b1 { width: 46vw; height: 46vw; max-width: 640px; max-height: 640px; left: -8%; top: -12%; background: var(--m1); }
+.hero-grid-bg.mesh .b2 { width: 38vw; height: 38vw; max-width: 540px; max-height: 540px; right: -6%; top: 4%; background: var(--m2); animation-duration: 26s; animation-delay: -6s; opacity: calc(var(--mesh-o) * .8); }
+.hero-grid-bg.mesh .b3 { width: 42vw; height: 42vw; max-width: 600px; max-height: 600px; left: 28%; bottom: -30%; background: var(--m3); animation-duration: 30s; animation-delay: -12s; }
+.hero-grid-bg.mesh .b4 { width: 26vw; height: 26vw; max-width: 380px; max-height: 380px; right: 22%; bottom: 0; background: var(--m4); animation-duration: 18s; animation-delay: -3s; opacity: calc(var(--mesh-o) * .7); }
+@keyframes mesh-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(6vw, 4vh, 0) scale(1.12); }
+  100% { transform: translate3d(-4vw, 7vh, 0) scale(.94); }
+}
+.hero::before { display: none; }
+/* fade the mesh into the page below the hero */
+.hero-grid-bg.mesh::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(to bottom, transparent, var(--bg)); }
+
+/* quieter version on alternate sections so the page doesn't go flat */
+.section-alt {
+  background:
+    radial-gradient(60% 50% at 0% 0%, color-mix(in srgb, var(--m1) 14%, transparent), transparent 70%),
+    radial-gradient(50% 45% at 100% 100%, color-mix(in srgb, var(--m2) 10%, transparent), transparent 70%),
+    var(--bg-2);
+}
+
+/* film grain over everything (very light, no clicks blocked) */
+body::after {
+  content: ""; position: fixed; inset: -50%; z-index: 250; pointer-events: none; opacity: var(--grain-o);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(4) infinite;
+}
+@keyframes grain { 0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); } 50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } 100% { transform: translate(0, 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid-bg.mesh i, body::after { animation: none !important; }
+}
