@@ -947,3 +947,46 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .hero-grid-bg.mesh i, body::after { animation: none !important; }
 }
+
+/* ------------------------------------------------------------ v5.1 responsive fixes */
+.nav-play { white-space: nowrap; }
+/* tablets / small laptops: 7 nav items no longer fit, switch to the menu button earlier */
+@media (max-width: 1080px) {
+  .menu-btn { display: inline-grid; }
+  .nav-cta { display: none; }
+  .nav-cta-mobile { display: block; }
+  .nav-links {
+    position: fixed; left: 0; right: 0; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+    flex-direction: column; gap: 2px; padding: 12px max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px));
+    background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg);
+    max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px)); overflow-y: auto;
+    opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all .25s var(--ease);
+  }
+  .nav-links.open { opacity: 1; visibility: visible; transform: none; }
+  .nav-link { padding: 12px 14px; font-size: 1.05rem; }
+  .nav.menu-open { background: var(--bg); }
+  .nav-tools { margin-left: auto; }
+}
+/* long email address on small phones */
+.contact-list a { overflow-wrap: anywhere; min-width: 0; }
+
+/* game: fit inside short screens (phones in landscape, small laptops) */
+.game-modal { padding: max(10px, env(safe-area-inset-top, 0px)) max(10px, env(safe-area-inset-right, 0px)) max(10px, env(safe-area-inset-bottom, 0px)) max(10px, env(safe-area-inset-left, 0px)); }
+.game-card { max-height: calc(100dvh - 20px); }
+.game-stage { flex: 1 1 auto; height: min(56vh, 460px); }
+@media (max-height: 560px) {
+  .game-head { padding: 12px 56px 8px 16px; gap: 8px 16px; align-items: center; }
+  .game-head .kicker, .game-help { display: none; }
+  .game-head h3 { font-size: 1.15rem; }
+  .game-stats > div { padding: 4px 10px; min-width: 0; }
+  .game-stats dd { font-size: 1.05rem; }
+  .game-modal .modal-close { top: 8px; right: 8px; }
+  .game-stage { height: auto; min-height: 0; flex: 1 1 auto; margin: 0 10px 10px; }
+  .game-card { height: calc(100dvh - 20px); }
+  .go-sub { display: none; }
+}
+@media (max-width: 400px) {
+  .game-head { padding: 16px 52px 10px 16px; }
+  .game-help { font-size: .84rem; }
+  .game-stage { height: min(54dvh, 460px); margin: 0 10px 10px; }
+}

@@ -85,6 +85,9 @@
     scene.background = new THREE.Color(BG);
     scene.fog = new THREE.Fog(BG, 8, 17);
     var BASE_FOV = narrow ? 54 : 40;
+    // side camera for the desk shots; pulled back on portrait phones so he doesn't fill the frame
+    var portrait = H > W * 1.15;
+    var SIDE_X = portrait ? 3.5 : 2.9, SIDE_Z = portrait ? 1.0 : 0.4;
     var camera = new THREE.PerspectiveCamera(BASE_FOV, W / H, 0.05, 60);
 
     function std(color, o) {
@@ -488,7 +491,7 @@
         var tp = ease(c01((t - t1) / T_TURN));
         p = pathAt(1); man.position.set(p[0], 0, p[1]);
         man.rotation.y = lerp(headingNow, Math.PI, tp); body.rotation.z = 0;
-        camPos.set(lerp(1.1, 2.9, tp), lerp(1.7, 1.6, tp), lerp(4.2, 0.4, tp));
+        camPos.set(lerp(1.1, SIDE_X, tp), lerp(1.7, 1.6, tp), lerp(4.2, SIDE_Z, tp));
         camLook.set(lerp(1.1, DX - 0.1, tp), lerp(1.05, 1.1, tp), lerp(-0.3, -0.5, tp));
       } else {
         body.rotation.z = 0;
@@ -512,7 +515,7 @@
         if (t < t4 - 0.2) { if (now - lastCodeDraw > 90 || seek) { lastCodeDraw = now; drawCode(c01((t - t2 - 0.2) / (t4 - t2 - 0.4)), Math.floor(t * 3) % 2 === 0); } }
         else if (!siteDrawn) { siteDrawn = true; drawSite(); }
         var zp = ease(c01((t - t3) / (T_TYPE + T_ZOOM)));
-        camPos.set(lerp(2.9, 1.85, zp), lerp(1.6, 1.5, zp), lerp(0.4, 0.2, zp));
+        camPos.set(lerp(SIDE_X, 1.85, zp), lerp(1.6, 1.5, zp), lerp(SIDE_Z, 0.2, zp));
         camLook.set(lerp(DX - 0.1, screenCenter.x, zp), lerp(1.1, screenCenter.y, zp), lerp(-0.5, screenCenter.z, zp));
         var dist = camPos.distanceTo(screenCenter), aspect = window.innerWidth / window.innerHeight;
         var fillFov = 2 * Math.atan(Math.max(0.3 / dist, (0.5 / aspect) / dist)) * 180 / Math.PI;
