@@ -96,8 +96,10 @@
       floor: std(0x2a2019, { roughness: 0.92 }), wall: std(0x1d1712, { roughness: 1 }), wall2: std(0x221b15, { roughness: 1 }),
       rug: std(0x4a3220, { roughness: 1 }), wood: std(0x7a5233, { roughness: 0.55 }), woodDark: std(0x3b2818, { roughness: 0.7 }),
       metal: std(0x1b1b1d, { roughness: 0.35, metalness: 0.7 }), dark: std(0x141414, { roughness: 0.45 }),
-      suit: std(0x2b3039, { roughness: 0.78 }), shirt: std(0xf1efe9, { roughness: 0.9 }), skin: std(0xc58a5c, { roughness: 0.65 }),
-      hair: std(0x15100c, { roughness: 0.85 }), shoe: std(0x0d0d0d, { roughness: 0.35 }), gold: std(0xe0ab45, { roughness: 0.25, metalness: 0.95 }),
+      suit: std(0x2b3039, { roughness: 0.78 }), shirt: std(0xf1efe9, { roughness: 0.9 }), skin: std(0xa86f48, { roughness: 0.62 }),
+      hair: std(0x140e0a, { roughness: 0.9, side: THREE.DoubleSide }), beard: std(0x2a1d15, { roughness: 0.95, side: THREE.DoubleSide }),
+      lapel: std(0x22262d, { roughness: 0.7 }), frame: std(0x2a1a12, { roughness: 0.35 }), frameMetal: std(0xc9a25a, { roughness: 0.3, metalness: 0.9 }),
+      lip: std(0x6e4030, { roughness: 0.6 }), shoe: std(0x0d0d0d, { roughness: 0.35 }), gold: std(0xe0ab45, { roughness: 0.25, metalness: 0.95 }),
       leaf: std(0x3f6d38, { roughness: 0.8, flatShading: true }), pot: std(0xd8cdbd, { roughness: 0.9 }), accent: std(0xf5a524, { roughness: 0.45 }),
       eye: std(0x111111, { roughness: 0.2 }), belt: std(0x111111, { roughness: 0.4, metalness: 0.4 }),
     };
@@ -118,19 +120,35 @@
     floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
     // floor planks
     for (var pk = -12; pk < 12; pk++) { var pl = new THREE.Mesh(new THREE.PlaneGeometry(0.012, 40), M.woodDark); pl.rotation.x = -Math.PI / 2; pl.position.set(pk * 0.32, 0.002, 0); scene.add(pl); }
-    var wall = new THREE.Mesh(new THREE.PlaneGeometry(40, 10), M.wall); wall.position.set(0, 5, -1.6); wall.receiveShadow = true; scene.add(wall);
-    var skirting = box(40, 0.1, 0.03, M.woodDark, 0, 0.05, -1.585);
+    // back wall built in pieces so the doorway is a real opening
+    var DOORX = -3.4, DW = 0.92, DH = 2.14;
+    function wallPiece(x0, x1, y0, y1) {
+      var m = new THREE.Mesh(new THREE.BoxGeometry(x1 - x0, y1 - y0, 0.1), M.wall);
+      m.position.set((x0 + x1) / 2, (y0 + y1) / 2, -1.65); m.castShadow = true; m.receiveShadow = true; scene.add(m); return m;
+    }
+    wallPiece(-20, DOORX - DW / 2, 0, 10); wallPiece(DOORX + DW / 2, 20, 0, 10); wallPiece(DOORX - DW / 2, DOORX + DW / 2, DH, 10);
+    box(DOORX + 20 - DW / 2, 0.1, 0.03, M.woodDark, (-20 + DOORX - DW / 2) / 2, 0.05, -1.585);
+    box(20 - DOORX - DW / 2, 0.1, 0.03, M.woodDark, (20 + DOORX + DW / 2) / 2, 0.05, -1.585);
+    // warm hallway behind the door
+    var hallMat = std(0x6b4a2c, { roughness: 1 });
+    box(1.8, 3, 0.05, std(0xc9935a, { roughness: 1, emissive: new THREE.Color(0x7a4a1c) }), DOORX, 1.5, -3.4);
+    box(0.05, 2.5, 1.65, hallMat, DOORX - 0.8, 1.25, -2.55); box(0.05, 2.5, 1.65, hallMat, DOORX + 0.8, 1.25, -2.55);
+    box(1.6, 0.05, 1.65, hallMat, DOORX, 2.45, -2.55);
+    var hallLight = new THREE.PointLight(0xffc27a, 1.6, 4, 2); hallLight.position.set(DOORX, 2.3, -2.6); scene.add(hallLight);
     var rug = new THREE.Mesh(new THREE.CircleGeometry(1.7, 56), M.rug); rug.rotation.x = -Math.PI / 2; rug.position.set(1.2, 0.004, -0.35); rug.receiveShadow = true; scene.add(rug);
 
     // doorway (left) with warm light spilling in
-    var DOORX = -3.4;
-    box(0.08, 2.2, 0.12, M.woodDark, DOORX - 0.5, 1.1, -1.56);
-    box(0.08, 2.2, 0.12, M.woodDark, DOORX + 0.5, 1.1, -1.56);
-    box(1.08, 0.08, 0.12, M.woodDark, DOORX, 2.2, -1.56);
-    var doorGlow = new THREE.Mesh(new THREE.PlaneGeometry(0.92, 2.16), new THREE.MeshBasicMaterial({ color: 0xffd6a0 }));
-    doorGlow.position.set(DOORX, 1.08, -1.59); scene.add(doorGlow);
-    var doorPanel = box(0.9, 2.12, 0.04, M.wood, DOORX - 0.45, 1.06, -1.54); // pivoting door
-    doorPanel.geometry.translate(0.45, 0, 0); doorPanel.position.x = DOORX - 0.45;
+    box(0.08, 2.2, 0.16, M.woodDark, DOORX - 0.5, 1.1, -1.6);
+    box(0.08, 2.2, 0.16, M.woodDark, DOORX + 0.5, 1.1, -1.6);
+    box(1.08, 0.08, 0.16, M.woodDark, DOORX, 2.2, -1.6);
+    // light leaking under the closed door
+    var gapMat = new THREE.MeshBasicMaterial({ color: 0xffc27a, transparent: true, opacity: 0.9, toneMapped: false });
+    var gap = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.5), gapMat); gap.rotation.x = -Math.PI / 2; gap.position.set(DOORX, 0.003, -1.3); scene.add(gap);
+    gapMat.map = canvasTex(64, 64, function (g, w, h) { var gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, 'rgba(255,200,130,.9)'); gr.addColorStop(1, 'rgba(255,200,130,0)'); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
+    var doorPanel = new THREE.Group(); doorPanel.position.set(DOORX - 0.45, 0, -1.6); scene.add(doorPanel); // hinge on the left
+    box(0.9, 2.11, 0.045, M.wood, 0.45, 1.075, 0, doorPanel);
+    [0.55, 1.45].forEach(function (y) { box(0.7, 0.7, 0.012, M.woodDark, 0.45, y, 0.028, doorPanel); }); // panels
+    var knob = sph(0.03, M.gold, 0.8, 1.0, 0.05, doorPanel);
     var doorLight = new THREE.SpotLight(0xffc27a, 2.4, 7, 0.75, 0.7, 1.4);
     doorLight.position.set(DOORX, 2.0, -1.9); doorLight.target.position.set(DOORX + 0.6, 0, 0.6); doorLight.castShadow = true;
     scene.add(doorLight); scene.add(doorLight.target);
@@ -294,18 +312,39 @@
     cyl(0.185, 0.185, 0.04, M.belt, 0, 0.93, 0, body, 20).scale.z = 0.62;
     box(0.04, 0.03, 0.01, M.gold, 0, 0.93, 0.12, body);
     cyl(0.05, 0.055, 0.1, M.skin, 0, 1.58, 0, body);
+    // blazer lapels + open white collar (matches the portrait)
+    [-1, 1].forEach(function (s) {
+      var lp = box(0.055, 0.32, 0.012, M.lapel, s * 0.06, 1.32, 0.13, body); lp.rotation.z = s * 0.32; lp.rotation.y = s * 0.25;
+      var col = box(0.045, 0.07, 0.01, M.shirt, s * 0.04, 1.53, 0.075, body); col.rotation.z = s * 0.6; col.rotation.x = -0.3;
+    });
     var head = new THREE.Group(); head.position.set(0, 1.74, 0); body.add(head);
-    var skull = sph(0.13, M.skin, 0, 0, 0, head); skull.scale.set(1, 1.13, 1.02);
-    var hair = add(new THREE.Mesh(new THREE.SphereGeometry(0.138, 26, 16, 0, Math.PI * 2, 0, Math.PI * 0.5), M.hair), head);
-    hair.position.set(0, 0.03, -0.012); hair.scale.set(1.02, 1.0, 1.06); hair.rotation.x = -0.28;
-    var quiff = sph(0.06, M.hair, 0, 0.125, 0.07, head); quiff.scale.set(1.6, 0.6, 1);
+    var HS = [1, 1.13, 1.02];
+    var skull = sph(0.13, M.skin, 0, 0, 0, head); skull.scale.set(HS[0], HS[1], HS[2]);
+    function shell(r, mat, phiS, phiL, thS, thL, y) {
+      var m = add(new THREE.Mesh(new THREE.SphereGeometry(r, 36, 22, phiS, phiL, thS, thL), mat), head);
+      m.scale.set(HS[0], HS[1], HS[2]); m.position.y = y || 0; return m;
+    }
+    // hair: short tapered back/sides, a top cap with a visible hairline, and a side-parted volume on top
+    shell(0.137, M.hair, Math.PI - 0.35, Math.PI + 0.7, 0, Math.PI * 0.6);        // back + sides (down to the nape)
+    shell(0.14, M.hair, 0, Math.PI * 2, 0, Math.PI * 0.33, 0.004);                // top cap, stops above the forehead
+    var vol = sph(0.08, M.hair, 0.02, 0.112, 0.05, head); vol.scale.set(1.3, 0.62, 1.0); vol.rotation.z = -0.2; // main sweep
+    var vol2 = sph(0.05, M.hair, -0.07, 0.1, 0.03, head); vol2.scale.set(1.0, 0.5, 1.2);                        // short side of the part
+    var front = sph(0.042, M.hair, 0.04, 0.125, 0.08, head); front.scale.set(1.5, 0.75, 1.0); front.rotation.z = -0.45; front.rotation.x = -0.5; // swept front
+    // short beard along the jaw + moustache
+    shell(0.1325, M.beard, -0.15, Math.PI + 0.3, Math.PI * 0.67, Math.PI * 0.25);
+    [-1, 1].forEach(function (s) { box(0.012, 0.06, 0.03, M.beard, s * 0.127, -0.035, 0.01, head); }); // sideburns
+    var mst = box(0.05, 0.011, 0.016, M.beard, 0, -0.05, 0.125, head); mst.rotation.x = 0.2;
+    box(0.032, 0.008, 0.01, M.lip, 0, -0.068, 0.124, head);
     [-1, 1].forEach(function (s) {
       sph(0.012, M.eye, s * 0.045, 0.018, 0.122, head);
-      var lens = new THREE.Mesh(new THREE.TorusGeometry(0.034, 0.005, 8, 24), M.dark); lens.position.set(s * 0.047, 0.018, 0.13); head.add(lens);
-      var arm = box(0.004, 0.004, 0.13, M.dark, s * 0.08, 0.02, 0.07, head);
-      sph(0.026, M.skin, s * 0.13, 0, 0, head);
+      box(0.042, 0.009, 0.012, M.hair, s * 0.047, 0.064, 0.126, head).rotation.z = s * -0.08; // eyebrows
+      // browline glasses: thick dark top rim, thin gold bottom rim
+      var top = new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.006, 8, 24, Math.PI), M.frame); top.position.set(s * 0.047, 0.02, 0.134); head.add(top);
+      var bot = new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.0018, 6, 24, Math.PI), M.frameMetal); bot.position.set(s * 0.047, 0.02, 0.134); bot.rotation.z = Math.PI; head.add(bot);
+      box(0.004, 0.006, 0.13, M.frame, s * 0.081, 0.028, 0.07, head); // temple arm
+      sph(0.026, M.skin, s * 0.13, 0, 0, head); // ear
     });
-    box(0.028, 0.005, 0.005, M.dark, 0, 0.02, 0.131, head);
+    box(0.026, 0.006, 0.006, M.frame, 0, 0.026, 0.136, head); // bridge
     sph(0.018, M.skin, 0, -0.012, 0.13, head).scale.set(1, 1.2, 1.1); // nose
 
 
@@ -348,7 +387,7 @@
     scene.add(dust);
 
     /* ====================================================================== timeline */
-    var PATH = [[DOORX, -1.25], [DOORX + 0.7, 0.35], [DX, 0.55]];
+    var PATH = [[DOORX, -2.75], [DOORX, -1.0], [DOORX + 0.8, 0.3], [DX, 0.55]];
     var segLen = [], totalLen = 0;
     for (var k = 1; k < PATH.length; k++) { var d = Math.hypot(PATH[k][0] - PATH[k - 1][0], PATH[k][1] - PATH[k - 1][1]); segLen.push(d); totalLen += d; }
     function pathAt(u) { // u: 0..1 along the path → [x, z, heading]
@@ -361,7 +400,7 @@
         dist -= segLen[k];
       }
     }
-    var T_DOOR = 0.6, T_WALK = 3.0, T_TURN = 0.45, T_SIT = 0.75, T_TYPE = 0.7, T_ZOOM = 1.7;
+    var T_DOOR = 0.75, T_WALK = 3.6, T_TURN = 0.45, T_SIT = 0.75, T_TYPE = 0.7, T_ZOOM = 1.7;
     var t0w = T_DOOR, t1 = t0w + T_WALK, t2 = t1 + T_TURN, t3 = t2 + T_SIT, t4 = t3 + T_TYPE, t5 = t4 + T_ZOOM;
     var TOTAL = t5 + 0.2;
     fade.style.background = getComputedStyle(root).getPropertyValue('--bg').trim() || '#0e0d0c';
@@ -398,7 +437,11 @@
       head.rotation.set(0, 0, 0);
 
       // door swing
-      doorPanel.rotation.y = -ease(c01(t / 0.7)) * 1.35;
+      // door: handle turns, swings open into the room, then eases shut behind him
+      var dOpen = ease(c01((t - 0.15) / 0.75)), dClose = ease(c01((t - (t0w + 1.9)) / 0.9));
+      doorPanel.rotation.y = -(dOpen * (1 - dClose)) * 1.5;
+      knob.rotation.z = t < 0.3 ? -c01(t / 0.15) * 0.8 : 0;
+      gapMat.opacity = 0.85 * (1 - dOpen * (1 - dClose));
 
       // lights wake up when he sits
       var lampOn = c01((t - (t2 + 0.15)) / 0.35);
@@ -417,7 +460,7 @@
       var p;
       if (t < t0w) {
         cap('The door opens…');
-        p = pathAt(0); man.position.set(p[0], 0, p[1]); man.rotation.y = p[2]; headingNow = p[2];
+        p = pathAt(0); man.position.set(p[0], 0, p[1]); man.rotation.y = 0; headingNow = 0;
         camPos.set(-0.6, 1.8, 4.6); camLook.set(-2.4, 1.1, -0.8);
       } else if (t < t1) {
         cap('Shubham is heading to his desk…');
@@ -445,8 +488,8 @@
         var tp = ease(c01((t - t1) / T_TURN));
         p = pathAt(1); man.position.set(p[0], 0, p[1]);
         man.rotation.y = lerp(headingNow, Math.PI, tp); body.rotation.z = 0;
-        camPos.set(lerp(1.1, 1.75, tp), lerp(1.7, 1.6, tp), lerp(4.2, 2.2, tp));
-        camLook.set(DX, lerp(1.05, 1.15, tp), lerp(-0.3, -0.8, tp));
+        camPos.set(lerp(1.1, 2.9, tp), lerp(1.7, 1.6, tp), lerp(4.2, 0.4, tp));
+        camLook.set(lerp(1.1, DX - 0.1, tp), lerp(1.05, 1.1, tp), lerp(-0.3, -0.5, tp));
       } else {
         body.rotation.z = 0;
         var spp = ease(c01((t - t2) / T_SIT));
@@ -469,8 +512,8 @@
         if (t < t4 - 0.2) { if (now - lastCodeDraw > 90 || seek) { lastCodeDraw = now; drawCode(c01((t - t2 - 0.2) / (t4 - t2 - 0.4)), Math.floor(t * 3) % 2 === 0); } }
         else if (!siteDrawn) { siteDrawn = true; drawSite(); }
         var zp = ease(c01((t - t3) / (T_TYPE + T_ZOOM)));
-        camPos.set(lerp(1.75, 1.88, zp), lerp(1.6, 1.58, zp), lerp(2.2, 0.25, zp));
-        camLook.set(lerp(DX, screenCenter.x, zp), lerp(1.15, screenCenter.y, zp), lerp(-0.8, screenCenter.z, zp));
+        camPos.set(lerp(2.9, 1.85, zp), lerp(1.6, 1.5, zp), lerp(0.4, 0.2, zp));
+        camLook.set(lerp(DX - 0.1, screenCenter.x, zp), lerp(1.1, screenCenter.y, zp), lerp(-0.5, screenCenter.z, zp));
         var dist = camPos.distanceTo(screenCenter), aspect = window.innerWidth / window.innerHeight;
         var fillFov = 2 * Math.atan(Math.max(0.3 / dist, (0.5 / aspect) / dist)) * 180 / Math.PI;
         camera.fov = lerp(BASE_FOV, fillFov, ease(c01((t - t4 + 0.6) / (T_ZOOM + 0.2))));
