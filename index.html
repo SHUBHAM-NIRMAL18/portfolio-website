@@ -146,6 +146,7 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#blog" class="nav-link">Blog</a>
+        <a href="#play" class="nav-link nav-play" id="playBtn" role="button" aria-haspopup="dialog"><svg class="ball-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" opacity=".18"/><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3 3 3 9.8 0 12.8M18.4 5.6c-3 3-3 9.8 0 12.8"/></g></svg>Play game</a>
         <a href="#contact" class="nav-link nav-cta-mobile">Contact</a>
       </nav>
       <div class="nav-tools">
@@ -607,6 +608,36 @@
     </div>
   </div>
 
+  <!-- ============ Mini game: basketball ============ -->
+  <div class="modal game-modal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="gameTitle" hidden>
+    <div class="modal-card game-card">
+      <button class="icon-btn modal-close" id="gameClose" type="button" aria-label="Close game"><svg><use href="#i-close"/></svg></button>
+      <div class="game-head">
+        <div>
+          <p class="kicker">Play game</p>
+          <h3 id="gameTitle">Shoot your shot</h3>
+          <p class="game-help">Drag back from the ball and let go to shoot. 30 seconds on the clock.</p>
+        </div>
+        <dl class="game-stats">
+          <div><dt>Score</dt><dd id="gScore">0</dd></div>
+          <div><dt>Time</dt><dd id="gTime">30</dd></div>
+          <div><dt>Best</dt><dd id="gBest">0</dd></div>
+        </dl>
+      </div>
+      <div class="game-stage">
+        <canvas id="gameCanvas" aria-label="Basketball game: drag back from the ball and release to shoot"></canvas>
+        <div class="game-overlay" id="gOverlay">
+          <p class="go-title" id="gOTitle">Ready?</p>
+          <p class="go-sub" id="gOSub">Sink as many as you can in 30 seconds. Three in a row gives you a streak bonus.</p>
+          <div class="go-actions">
+            <button class="btn btn-primary" id="gStart" type="button">Start</button>
+            <a class="btn btn-ghost" id="gTalk" href="#contact" hidden>Nice shot, now let's talk <svg><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ============ Chatbot (AI avatar, same icon) ============ -->
   <div class="chatbot" id="chatbot">
     <button class="chat-toggle" id="chatToggle" type="button" aria-label="Chat with Shubham's AI avatar" aria-expanded="false" title="Talk to Shubham's AI avatar">
@@ -638,5 +669,6 @@
 
   <script src="js/intro3d.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/game.js" defer></script>
 </body>
 </html>
